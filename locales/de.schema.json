@@ -16,6 +16,26 @@
         },
         "footer": {
             "name": "Fußzeile"
+        },
+        "featured-collection":{
+            "name": "Vorgestellte Kategorie",
+            "settings": {
+                "title": {
+                    "label": "Überschrifft"
+                },
+                "title_align": {
+                    "label": "Text ausrichtung",
+                    "options__1": {
+                        "label": "Links"
+                    },
+                    "options__2": {
+                        "label": "Mitte"
+                    },
+                    "options__3": {
+                        "label": "Rechts"
+                    }
+                }
+            }
         }
     }
 }
