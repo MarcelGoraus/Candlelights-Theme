@@ -1,33 +1,36 @@
 {{ 'section-header.css' | asset_url | stylesheet_tag }}
 
 <header>
-  <nav class="navigation-content">
-    <div class="navigation-logo">
-      <a href="#">Natures Remedy</a>
-    </div>
-    <div class="navigation-list">
-      <ul>
-        {% for link in section.settings.menu.links %}
-          <li>
-            <a href="{{ link.url }}"
-              ><span>{{ link.title }}</span></a
-            >
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="navigation-icons">
-      {% if section.settings.searchform == true %}
-        <i class="bx bx-search"></i>
-      {% endif %}
-
-      <i class="bx bx-user"></i>
-      <i class="bx bx-shopping-bag"></i>
-      <div class="navigation-toggle">
-        <i class="bx bx-menu"></i>
+  <div class="page-width">
+    <nav class="navigation-content">
+      <div class="navigation-logo">
+        <a href="#">Natures Remedy</a>
       </div>
-    </div>
-  </nav>
+      <div class="navigation-list">
+        <ul>
+          {% for link in section.settings.menu.links %}
+            <li>
+              <a href="{{ link.url }}"
+                ><span>{{ link.title }}</span></a
+              >
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="navigation-icons">
+        {% if section.settings.searchform == true %}
+          <i class="bx bx-search"></i>
+        {% endif %}
+
+        <i class="bx bx-user"></i>
+        <i class="bx bx-shopping-bag"></i>
+        <div class="navigation-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </div>
+    </nav>
+  </div>
+
   <div class="sidebar-overlay"></div>
   <!-- Neues Element für die Sidebar-Overlay-Hintergrund -->
   <div class="sidebar-menu">

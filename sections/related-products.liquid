@@ -1,0 +1,26 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "t:sections.related-product.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.related-products.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.related-products.settings.show_rating.label",
+      "info": "t:sections.related-products.settings.show_rating.info"
+    }
+  ]
+}
+{% endschema %}
