@@ -1,0 +1,21 @@
+{
+    "sections": {
+        "announcement-bar": {
+            "name": "Ankündigungsleiste"
+        },
+        "header": {
+            "name": "Header",
+            "settings": {
+                "menu": {
+                    "label": "Menü"
+                },
+                "searchform": {
+                    "label": "Produkt Suche"
+                }
+            }
+        },
+        "footer": {
+            "name": "Fußzeile"
+        }
+    }
+}

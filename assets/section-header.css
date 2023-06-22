@@ -1,0 +1,225 @@
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+    .navigation-logo {
+        font-size: var(--h1-font-size);
+        line-height: var(--h2-line-height);
+    }
+
+    .navigation-list {
+        display: none !important;
+    }
+
+    .navigation-toggle {
+        display: block;
+        color: var(--primary-color);
+        font-size: var(--large-font-size);
+        font-weight: normal;
+        line-height: 1;
+        cursor: pointer;
+        align-items: center;
+        margin-left: 10px;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+    }
+
+    .navigation-icons .navigation-toggle i:hover {
+        scale: 1;
+    }
+
+    .navigation-toggle.active {
+        color: var(--accent-color);
+    }
+
+    .navigation-dropdown {
+        display: none;
+    }
+
+    .navigation-dropdown.active {
+        display: block;
+    }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 768px) {
+    .navigation-logo {
+        font-size: var(--h1-font-size);
+        line-height: var(--h1-line-height);
+    }
+
+    .navigation-list {
+        display: flex;
+    }
+
+    .navigation-toggle {
+        display: none;
+    }
+
+    .navigation-dropdown {
+        display: none;
+    }
+}
+
+/* Common Styles */
+header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px;
+}
+
+.navigation-content{
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1140px;
+}
+
+.navigation-logo a {
+    font-weight: var(--heading-font-weight);
+    font-family: 'Great Vibes', cursive;
+    color: var(--secondary-color);
+}
+
+.navigation-list ul {
+    display: flex;
+}
+
+.navigation-icons {
+    display: flex;
+    align-items: center;
+}
+
+.navigation-icons i+i {
+    margin-left: 10px;
+}
+
+.navigation-icons i {
+    font-size: var(--large-font-size);
+    transition: all .30s ease;
+}
+
+.navigation-icons i:hover {
+    scale: 1.2;
+}
+
+.navigation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-list li {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navigation-list li a {
+    color: var(--secondary-color);
+    font-size: var(--medium-font-size);
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: none;
+    transition: all .35s ease;
+}
+
+.navigation-list li a:hover {
+    color: var(--accent-color);
+}
+
+.navigation-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 20px;
+}
+
+.navigation-dropdown li {
+    margin-bottom: 10px;
+}
+
+.navigation-dropdown li a {
+    color: var(--secondary-color);
+    font-size: var(--medium-font-size);
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.navigation-dropdown li a:hover {
+    color: var(--accent-color);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe des Overlays */
+    z-index: 9999; /* Stellen Sie sicher, dass das Overlay über dem Rest der Seite liegt */
+    display: none; /* Das Overlay standardmäßig ausblenden */
+}
+
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Breite der Sidebar */
+    height: 100%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateX(-100%); /* Die Sidebar außerhalb des Bildschirms verstecken */
+    transition: transform 0.3s ease-in-out; /* Eine Animation für die Sidebar-Transition hinzufügen */
+    z-index: 10000; /* Stellen Sie sicher, dass die Sidebar über dem Rest der Seite liegt */
+}
+
+.sidebar-menu.active {
+    transform: translateX(0); /* Die Sidebar auf den Bildschirm schieben, wenn sie aktiv ist */
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.sidebar-header a{
+    font-family: 'Great Vibes', cursive;
+    font-weight: var(--heading-font-weight);
+    color: var(--secondary-color);
+    font-size: var(--h1-font-size);
+}
+
+.sidebar-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-list li+li{
+    
+    margin-top: 20px;
+    
+}
+
+.sidebar-list li a {
+    color: var(--secondary-color);
+    font-size: var(--medium-font-size);
+    font-weight: var(400);
+    transition: all .35s ease;
+}
+
+.sidebar-list li a:hover{
+    color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+    .sidebar-overlay,
+    .sidebar-menu {
+        display: none; /* Das Overlay und die Sidebar auf größeren Bildschirmen ausblenden */
+    }
+}

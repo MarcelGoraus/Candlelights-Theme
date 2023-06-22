@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="{{ page_description | escape }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    {{ content_for_header }}
+
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@100;300;400;700&family=Lobster&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Header hook for plugins -->
+    {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'application.js' | asset_url | script_tag }}
+  </head>
+  <body>
+    {% for link in linklists['main-menu'].links %}
+      {% assign child_list_handle = link.title | handleize %}
+      {% if linklists[child_list_handle].links != blank %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        [
+        {%- for childlink in linklists[child_list_handle].links %}
+          <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+        {% endfor -%}
+        ]
+      {% else %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endif %}
+    {% endfor %}
+
+    <a href="/cart">cart</a>
+
+    {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+        <a href="/account">account</a>
+        {{ 'log out' | customer_logout_link }}
+      {% else %}
+        {{ 'log in ' | customer_login_link }}
+        {{ 'register' | customer_register_link }}
+      {% endif %}
+    {% endif %}
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+  </body>
+</html>
