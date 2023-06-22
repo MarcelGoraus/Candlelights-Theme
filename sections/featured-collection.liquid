@@ -1,0 +1,78 @@
+{% comment %}
+  featured-collection.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Featured Collection"-Abschnitts.
+{% endcomment %}
+
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+<section class="featured-collection">
+  <div class="container">
+    {% assign titleAlign = section.settings.title_align %}
+    <h2 class="section-title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">{{ section.settings.title }}</h2>
+
+    {% assign collection = collections[section.settings.collection] %}
+
+    {% if collection %}
+      <div class="collection-grid">
+        {% for product in collection.products %}
+          <div class="product-card">
+            <a href="{{ product.url }}" class="product-card-link">
+              <div class="product-card-image">
+                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+              </div>
+              <h3 class="product-card-title">{{ product.title }}</h3>
+              <p class="product-card-price">{{ product.price | money }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>Die angegebene Sammlung existiert nicht.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.featured-collection.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "collection",
+      "label": "Collection",
+      "id": "collection"
+    },
+    {
+      "type": "select",
+      "id": "title_align",
+      "label": "t:sections.featured-collection.settings.title_align.label",
+      "options": [
+        { "value": "left", "label": "t:sections.featured-collection.settings.title_align.options__1.label" },
+        { "value": "center", "label": "t:sections.featured-collection.settings.title_align.options__2.label" },
+        { "value": "right", "label": "t:sections.featured-collection.settings.title_align.options__3.label" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.name"
+    }
+  ]
+}
+{% endschema %}
