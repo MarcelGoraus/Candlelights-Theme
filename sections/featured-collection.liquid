@@ -10,10 +10,12 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
-<section class="featured-collection">
-  <div class="container">
+<section class="collection">
+  <div class="page-width">
     {% assign titleAlign = section.settings.title_align %}
-    <h2 class="section-title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">{{ section.settings.title }}</h2>
+    <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+      {{ section.settings.title }}
+    </h2>
 
     {% assign collection = collections[section.settings.collection] %}
 
