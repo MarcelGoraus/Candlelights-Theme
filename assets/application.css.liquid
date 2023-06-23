@@ -1,22 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700 &family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 /*
 font-family: 'Fraunces', serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Lobster', cursive;
-*/:root
-{
+*/
+
+:root {
 
   /* Color Palette */
-  --primary-color: {{ settings.primary-color }}
-  ;
   /* Dark Gray */
-  --secondary-color: {{ settings.secondary-color }}
-  ;
+  --primary-color: {{ settings.primary-color }};
   /* White */
-  --accent-color: {{ settings.accent-color }}
-  ;
+  --secondary-color: {{ settings.secondary-color }};
+  
   /* gold */
+  --accent-color: {{ settings.accent-color }};
+  
 
   /* Font Sizes */
   --small-font-size: 14px;
@@ -37,17 +35,12 @@ font-family: 'Lobster', cursive;
   --h2-line-height: 1.3;
 
 
-  --width: {{ settings.page_width}}
-  px;
+  --width: {{ settings.page_width}}px;
 
-  --base_font_size: {{ settings.base_text_size }}
-  px;
-  --default_font_size: {{ settings.default_text_size }}
-  px;
-  --primary_background: {{ settings.primary_background_color }}
-  ;
-  --secondary_background: {{ settings.secondary_background_color}}
-  ;
+  --base_font_size: {{ settings.base_text_size }}px;
+  --default_font_size: {{ settings.default_text_size }}px;
+  --primary_background: {{ settings.primary_background_color }};
+  --secondary_background: {{ settings.secondary_background_color}};
 }
 
 * {

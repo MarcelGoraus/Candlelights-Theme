@@ -10,34 +10,43 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
-<section class="collection">
-  <div class="page-width">
-    {% assign titleAlign = section.settings.title_align %}
-    <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
-      {{ section.settings.title }}
-    </h2>
-
-    {% assign collection = collections[section.settings.collection] %}
-
-    {% if collection %}
-      <div class="collection-grid">
-        {% for product in collection.products %}
-          <div class="product-card">
-            <a href="{{ product.url }}" class="product-card-link">
-              <div class="product-card-image">
-                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-              </div>
-              <h3 class="product-card-title">{{ product.title }}</h3>
-              <p class="product-card-price">{{ product.price | money }}</p>
-            </a>
-          </div>
-        {% endfor %}
+<div>
+  <div class="collection section-{{ section.id }}">
+    <div class="page-width">
+      <div class="collection__title title-wrapper title-wrapper--no-top-margin">
+        {% if section.settings.title != blank %}
+          {% assign titleAlign = section.settings.title_align %}
+          <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+            {{ section.settings.title }}
+          </h2>
+        {% endif %}
       </div>
-    {% else %}
-      <p>Die angegebene Sammlung existiert nicht.</p>
-    {% endif %}
+
+      {% assign collection = collections[section.settings.collection] %}
+
+      {% if collection %}
+        <div class="collection-grid">
+          {% for product in collection.products %}
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-card-link">
+                <div class="product-card-image">
+                  <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                </div>
+                {% if section.settings.show_vendor %}
+                  <p>{{ product.vendor }}</p>
+                {% endif %}
+                <h3 class="product-card-title">{{ product.title }}</h3>
+                <p class="product-card-price">{{ product.price | money }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>Die angegebene Sammlung existiert nicht.</p>
+      {% endif %}
+    </div>
   </div>
-</section>
+</div>
 
 {% schema %}
 {
@@ -58,6 +67,12 @@
       "type": "collection",
       "label": "Collection",
       "id": "collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": true,
+      "label": "Show Vendor"
     },
     {
       "type": "select",
