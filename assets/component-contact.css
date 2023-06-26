@@ -1,0 +1,11 @@
+.contact-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-name{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

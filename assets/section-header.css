@@ -1,7 +1,7 @@
 /* Mobile Styles */
 @media screen and (max-width: 767px) {
-    .navigation-logo {
-        font-size: var(--h1-font-size);
+    .navigation-logo a{
+        font-size: calc(var(--h1-font-size) - (var(--h1-font-size) - 20px));
         line-height: var(--h2-line-height);
     }
 
@@ -11,15 +11,14 @@
 
     .navigation-toggle {
         display: block;
-        color: var(--primary-color);
+        color: var(--secondary-color);
         font-size: var(--large-font-size);
-        font-weight: normal;
+        font-weight: 400;
         line-height: 1;
         cursor: pointer;
-        align-items: center;
         margin-left: 10px;
-        background-color: var(--accent-color);
-        border-radius: 2px;
+        border-radius: 20%;
+        border: 2px solid var(--secondary-color);
     }
 
     .navigation-icons .navigation-toggle i:hover {
@@ -41,8 +40,8 @@
 
 /* Desktop Styles */
 @media screen and (min-width: 768px) {
-    .navigation-logo {
-        font-size: var(--h1-font-size);
+    .navigation-logo a{
+        font-size: calc(var(--h1-font-size) - (var(--h1-font-size) - 30px));
         line-height: var(--h1-line-height);
     }
 
@@ -94,7 +93,7 @@ header {
 }
 
 .navigation-icons i {
-    font-size: var(--large-font-size);
+    font-size: calc(var(--large-font-size) - (var(--large-font-size) - 23px));
     transition: all .30s ease;
 }
 
@@ -117,7 +116,8 @@ header {
 
 .navigation-list li a {
     color: var(--secondary-color);
-    font-size: var(--medium-font-size);
+    font-size: calc(var(--medium-font-size) - (var(--medium-font-size) - 15px));
+    text-transform: uppercase;
     font-weight: normal;
     line-height: 1;
     text-decoration: none;
@@ -126,6 +126,7 @@ header {
 
 .navigation-list li a:hover {
     color: var(--accent-color);
+    font-size: calc(var(--medium-font-size) - (var(--medium-font-size) - 17px));
 }
 
 .navigation-dropdown {
@@ -208,13 +209,14 @@ header {
 
 .sidebar-list li a {
     color: var(--secondary-color);
-    font-size: var(--medium-font-size);
+    font-size: calc(var(--medium-font-size) - (var(--medium-font-size) - 15px));
     font-weight: var(400);
     transition: all .35s ease;
 }
 
 .sidebar-list li a:hover{
     color: var(--accent-color);
+    font-size: calc(var(--medium-font-size) - (var(--medium-font-size) - 17px));
 }
 
 @media screen and (min-width: 768px) {

@@ -3,17 +3,17 @@
   ---------------------------
   Dieses Template dient zur Darstellung eines "Featured Collection"-Abschnitts.
 {% endcomment %}
-
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
-<div>
+<div style="background: {{ section.settings.background_color }};">
   <div class="collection section-{{ section.id }}">
     <div class="page-width">
-      <div class="collection__title title-wrapper title-wrapper--no-top-margin">
+      <div class="collection__title">
         {% if section.settings.title != blank %}
           {% assign titleAlign = section.settings.title_align %}
           <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
@@ -23,22 +23,16 @@
       </div>
 
       {% assign collection = collections[section.settings.collection] %}
-
       {% if collection %}
         <div class="collection-grid">
-          {% for product in collection.products %}
-            <div class="product-card">
-              <a href="{{ product.url }}" class="product-card-link">
-                <div class="product-card-image">
-                  <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                </div>
-                {% if section.settings.show_vendor %}
-                  <p>{{ product.vendor }}</p>
-                {% endif %}
-                <h3 class="product-card-title">{{ product.title }}</h3>
-                <p class="product-card-price">{{ product.price | money }}</p>
-              </a>
-            </div>
+          {% assign productCount = 0 %}
+          {% for product in collection.products limit: section.settings.show_products %}
+            {% render 'card-product',
+              card_product: product,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_badge: section.settings.show_badge
+            %}
           {% endfor %}
         </div>
       {% else %}
@@ -73,6 +67,33 @@
       "id": "show_vendor",
       "default": true,
       "label": "Show Vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "Show Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "default": true,
+      "label": "Show Badge"
+    },
+    {
+      "type": "range",
+      "id": "show_products",
+      "default": 4,
+      "label": "Show Products",
+      "max": 20,
+      "min": 4,
+      "step": 4
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#fff",
+      "label": "Hintergrund Farbe"
     },
     {
       "type": "select",

@@ -1,0 +1,34 @@
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .compare-at-price {
+    font-size: 12px;
+    color: gray;
+    text-decoration: line-through;
+  }
+  
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .sales {
+    background-color: #E74C3C;
+  }
+
+  .sold-out{
+    background-color: #95A5A6;
+  }
+
+  .new{
+    background-color: #3498DB;
+  }
+  

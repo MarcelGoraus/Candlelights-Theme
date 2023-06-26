@@ -1,0 +1,19 @@
+{{ 'component-pagination.css' | asset_url | stylesheet_tag }}
+
+{% if pagination.pages > 0 %}
+  <nav role="navigation" class="pagination">
+    {% if pagination.previous %}
+      <a href="{{ pagination.previous.url }}">
+        <i class="bx bxs-left-arrow"></i>
+      </a>
+    {% endif %}
+    {% for part in pagination.parts %}
+      <a href="{{ part.url }}" class="{% if part.is_link != true %}active{% endif %}">{{ part.title }}</a>
+    {% endfor %}
+    {% if pagination.next %}
+      <a href="{{ pagination.next.url }}">
+        <i class="bx bxs-right-arrow"></i>
+      </a>
+    {% endif %}
+  </nav>
+{% endif %}

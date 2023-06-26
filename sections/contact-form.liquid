@@ -1,0 +1,30 @@
+<div class="page-width">
+  <div class="section-header">
+    <h2 class="section-header__title">Kontaktiere uns</h2>
+  </div>
+  {% form 'contact' %}
+    <div class="contact-container">
+      <div class="contact-name">
+        <label for="contact_name">Name</label>
+        <input type="text" name="contact[name]" id="contact_name">
+
+        <label for="contact_email">Email</label>
+        <input type="email" name="contact[email]" id="contact_email">
+      </div>
+
+      <label for="contact_message">Message</label>
+      <textarea name="contact[body]" id="contact_message"></textarea>
+    </div>
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}
