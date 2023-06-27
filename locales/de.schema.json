@@ -17,7 +17,7 @@
         "footer": {
             "name": "Fußzeile"
         },
-        "featured-collection":{
+        "featured-collection": {
             "name": "Vorgestellte Kategorie",
             "settings": {
                 "title": {
@@ -38,6 +38,150 @@
             },
             "presets": {
                 "name": "Vorgestellte Kategorie"
+            }
+        },
+        "contact-form": {
+            "name": "Kontaktformular",
+            "settings": {
+                "content": "Alle Einsendungen werden an die Kunden-E-Mail-Adresse deines Shops gesendet. [Mehr erfahren](https:\/\/help.shopify.com\/en\/manual\/using-themes\/change-the-layout\/add-contact-form#view-contact-form-submissions).",
+                "title": {
+                    "label": "Titel"
+                },
+                "text": {
+                    "label": "Text"
+                },
+                "show_phone": {
+                    "label": "Telefonnummer anzeigen"
+                }
+            },
+            "presets": {
+                "contact_form": {
+                    "name": "Kontaktformular"
+                }
+            }
+        },
+        "main-page": {
+            "name": "Seite"
+        },
+        "rich-text": {
+            "name": "Rich Text",
+            "settings": {
+                "align_text": {
+                    "label": "Textausrichtung",
+                    "options": {
+                        "left": {
+                            "label": "Links"
+                        },
+                        "center": {
+                            "label": "Zentriert"
+                        },
+                        "right": {
+                            "label": "Rechts"
+                        }
+                    }
+                },
+                "narrow_column": {
+                    "label": "Schmale Spalte"
+                },
+                "divider": {
+                    "label": "Abschnittsteiler anzeigen"
+                }
+            },
+            "blocks": {
+                "heading": {
+                    "name": "Überschrift",
+                    "settings": {
+                        "title": {
+                            "label": "Überschrift"
+                        }
+                    }
+                },
+                "text": {
+                    "name": "Text",
+                    "settings": {
+                        "enlarge_text": {
+                            "label": "Text vergrößern"
+                        },
+                        "text": {
+                            "label": "Text"
+                        }
+                    }
+                },
+                "button": {
+                    "name": "Schaltfläche",
+                    "settings": {
+                        "link": {
+                            "label": "Schaltflächenlink"
+                        },
+                        "link_text": {
+                            "label": "Schaltflächentext"
+                        }
+                    }
+                },
+                "page": {
+                    "name": "Seite",
+                    "settings": {
+                        "page_text": {
+                            "label": "Seite"
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "rich_text": {
+                    "name": "Rich Text"
+                }
+            }
+        },
+        "faq": {
+            "name": "FAQ",
+            "settings": {
+                "title": {
+                    "label": "Überschrift"
+                }
+            },
+            "blocks": {
+                "rich_text": {
+                    "name": "Rich Text",
+                    "settings": {
+                        "title": {
+                            "label": "Titel"
+                        },
+                        "text": {
+                            "label": "Text"
+                        },
+                        "align_text": {
+                            "label": "Textausrichtung",
+                            "options": {
+                                "left": {
+                                    "label": "Links"
+                                },
+                                "center": {
+                                    "label": "Zentriert"
+                                },
+                                "right": {
+                                    "label": "Rechts"
+                                }
+                            }
+                        }
+                    }
+                },
+                "question": {
+                    "name": "Frage",
+                    "settings": {
+                        "title": {
+                            "label": "Frage"
+                        },
+                        "text": {
+                            "label": "Text"
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "faq": {
+                    "name": "FAQ"
+                }
             }
         }
     }

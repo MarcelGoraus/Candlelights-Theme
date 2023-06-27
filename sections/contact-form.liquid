@@ -1,30 +1,86 @@
-<div class="page-width">
-  <div class="section-header">
-    <h2 class="section-header__title">Kontaktiere uns</h2>
-  </div>
-  {% form 'contact' %}
-    <div class="contact-container">
-      <div class="contact-name">
-        <label for="contact_name">Name</label>
-        <input type="text" name="contact[name]" id="contact_name">
-
-        <label for="contact_email">Email</label>
-        <input type="email" name="contact[email]" id="contact_email">
+<div class="contact-section">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <div class="section-header">
+        <h2 class="section-header__title">
+          {{ section.settings.title }}
+        </h2>
+        {%- if section.settings.text != blank -%}
+          <div class="rte section-header__rte">{{ section.settings.text }}</div>
+        {%- endif -%}
       </div>
+    {% endif %}
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p>Thank you for your contact</p>
+      {% endif %}
+      {{ form.errors | default_errors }}
 
-      <label for="contact_message">Message</label>
-      <textarea name="contact[body]" id="contact_message"></textarea>
-    </div>
-  {% endform %}
+      <div class="contact-container">
+        <div class="contact-content">
+          <div class="contact-con">
+            <label for="contact_name" class="form-label">Name</label>
+            <input type="text" name="contact[name]" id="contact_name" class="form-input">
+          </div>
+
+          <div class="contact-con">
+            <label for="contact_email" class="form-label">Email</label>
+            <input type="email" name="contact[email]" id="contact_email" class="form-input">
+          </div>
+        </div>
+
+        {% if section.settings.show_phone %}
+          <div class="contact-con">
+            <label for="contact_phone" class="form-label">Phone Number</label>
+            <input type="tel" name="contact[phone]" id="contact_phone" class="form-input">
+          </div>
+        {% endif %}
+
+        <div class="contact-con">
+          <label for="contact_message" class="form-label">Message</label>
+          <textarea name="contact[body]" id="contact_message" class="form-textarea"></textarea>
+        </div>
+
+        <button type="submit" class="form-button">Submit</button>
+      </div>
+    {% endform %}
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "Contact Form",
+  "name": "t:sections.contact-form.name",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.contact-form.settings.content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.contact-form.settings.title.label",
+      "default": "Contact us"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.contact-form.settings.text.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phone",
+      "label": "t:sections.contact-form.settings.show_phone.label",
+      "default": true
+    }
+  ],
   "presets": [
     {
-      "name": "Contact Form"
+      "name": "t:sections.contact-form.presets.contact_form.name"
     }
-  ]
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header"]
+  }
 }
 {% endschema %}
