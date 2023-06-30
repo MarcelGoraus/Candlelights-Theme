@@ -63,6 +63,9 @@
         "main-page": {
             "name": "Seite"
         },
+        "main-product":{
+            "name":"Produkt"
+        },
         "rich-text": {
             "name": "Rich Text",
             "settings": {
@@ -141,39 +144,17 @@
                 }
             },
             "blocks": {
-                "rich_text": {
-                    "name": "Rich Text",
-                    "settings": {
-                        "title": {
-                            "label": "Titel"
-                        },
-                        "text": {
-                            "label": "Text"
-                        },
-                        "align_text": {
-                            "label": "Textausrichtung",
-                            "options": {
-                                "left": {
-                                    "label": "Links"
-                                },
-                                "center": {
-                                    "label": "Zentriert"
-                                },
-                                "right": {
-                                    "label": "Rechts"
-                                }
-                            }
-                        }
-                    }
-                },
                 "question": {
                     "name": "Frage",
                     "settings": {
                         "title": {
+                            "label": "Titel"
+                        },
+                        "question": {
                             "label": "Frage"
                         },
-                        "text": {
-                            "label": "Text"
+                        "answer": {
+                            "label": "antwort"
                         }
                     }
                 }

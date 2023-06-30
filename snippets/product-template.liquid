@@ -1,0 +1,102 @@
+{{ 'section-product.css' | asset_url | stylesheet_tag }}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+<div
+  id="ProductSection-{{ section_id }}-{{ product.id }}"
+  class="product-section"
+>
+  <div class="page-width">
+    <div class="product-content">
+      <div class="product--medias">
+        <div class="product--medias__preview">
+          {% if product.selected_or_first_available_variant.featured_image %}
+            {% assign featured = product.selected_or_first_available_variant.featured_image %}
+            {% render 'product-media', media: featured %}
+          {% else %}
+            {% assign featured = product.featured_image %}
+            {% render 'product-media', media: featured %}
+          {% endif %}
+        </div>
+        <ul class="product--medias__thumbnail">
+          {% for media in product.images %}
+            <li class="{% if image == featured %}selected{% endif %}">{% render 'product-media', media: media %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="product--information"></div>
+    </div>
+
+    {{ product.title }}
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'vendor' %}
+          {{ product.vendor }}
+        {% when 'rating' %}
+
+        {% when 'title' %}
+          {{ product.title }}
+        {% when 'price' %}
+          {{ product.price | money }}
+        {% when 'variant_selector' %}
+
+        {% when 'quantity' %}
+
+        {% when 'description' %}
+
+        {% when 'checkout_button' %}
+
+        {% when 'in_stock' %}
+          {% render 'product-instock', product: current_variant %}
+        {% else %}
+
+      {% endcase %}
+    {% endfor %}
+
+    {% unless product.available %}
+      <div id="sold-out">
+        {% form 'contact' %}
+          {% if form.posted_successfully? %}
+            <p class="accent-text">Thanks! We will notify you when this product becomes available!</p>
+          {% else %}
+            <p>
+              Click <a id="notify-me" href="#"><strong>here</strong></a> to be notified by email when
+              {{ product.title }} becomes available.
+            </p>
+          {% endif %}
+          {% if form.errors %}
+            <div class="error feedback accent-text">
+              <p>Please provide a valid email address.</p>
+            </div>
+          {% endif %}
+          {% unless form.posted_successfully? %}
+            <div id="notify-me-wrapper" class="clearfix" style="display:none">
+              {% if customer %}
+                <input type="hidden" name="contact[email]" value="{{ customer.email }}">
+              {% else %}
+                <input
+                  style="float:left; width:180px;"
+                  required="required"
+                  type="email"
+                  name="contact[email]"
+                  placeholder="your@email.com"
+                  class="styled-input{% if form.errors contains 'email' %} error{% endif %}"
+                  value="{{ contact.fields.email }}"
+                >
+              {% endif %}
+              <input
+                type="hidden"
+                name="contact[body]"
+                value="Please notify me when {{ product.title | escape }} becomes available."
+              >
+              <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send">
+            </div>
+          {% endunless %}
+        {% endform %}
+      </div>
+      <br>
+    {% endunless %}
+  </div>
+</div>

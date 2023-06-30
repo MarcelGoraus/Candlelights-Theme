@@ -4,7 +4,7 @@
   <nav role="navigation" class="pagination">
     {% if pagination.previous %}
       <a href="{{ pagination.previous.url }}">
-        <i class="bx bxs-left-arrow"></i>
+        <i class="bx bxs-left-arrow"> </i>
       </a>
     {% endif %}
     {% for part in pagination.parts %}
@@ -12,7 +12,7 @@
     {% endfor %}
     {% if pagination.next %}
       <a href="{{ pagination.next.url }}">
-        <i class="bx bxs-right-arrow"></i>
+        <i class="bx bxs-right-arrow"> </i>
       </a>
     {% endif %}
   </nav>

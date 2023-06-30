@@ -12,15 +12,14 @@
 {% endcomment %}
 
 {% if card_product and card_product != empty %}
-  <a class="card" href="{{ card_product.url }}">
+  <div class="card">
     <div class="card__image">
       <img
         src="{{ card_product.featured_image | img_url: 'medium' }}'"
         loading="lazy"
         alt="{{ card_product.featured_image.alt }}"
       >
-      {% assign daysThreshold = 1 %} // Anzahl der Tage, die ein Produkt als "neu" betrachtet wird
-
+      {% assign daysThreshold = 7 %}
       {% if show_badge %}
         {% if card_product.compare_at_price %}
           <span class="badge sales">Sale</span>
@@ -31,16 +30,18 @@
         {% capture currentDate %}{{ 'now' | date: '%s' }}{% endcapture %}
         {% capture productDate %}{{ card_product.created_at | date: '%s' }}{% endcapture %}
         {% assign daysSinceCreation = currentDate | minus: productDate | divided_by: 86400 %}
-        {% if daysSinceCreation <= daysThreshold %}
-          <span class="badge new">New</span>
+        {% assign productAgeInDays = daysSinceCreation %}
+        {% if productAgeInDays <= daysThreshold %}
+          <span class="badge new"> New</span>
         {% endif %}
       {% endif %}
     </div>
-    <div class="card__content">
+    <a class="card__content" href="{{ card_product.url }}">
       {% if show_vendor %}
         <p class="card__vendor">{{ card_product.vendor }} - {{ card_product.type }}</p>
       {% endif %}
       {% if show_rating %}
+        {% render 'product-rating', product: card_product, show_rating_count: section.settings.show_rating_count %}
       {% endif %}
       <h3 class="card__title">{{ card_product.title }}</h3>
       <div class="product-price">
@@ -49,6 +50,6 @@
         {% endif %}
         <span>{{ card_product.price | money }}</span>
       </div>
-    </div>
-  </a>
+    </a>
+  </div>
 {% endif %}

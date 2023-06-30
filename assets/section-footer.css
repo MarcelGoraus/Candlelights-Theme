@@ -1,0 +1,124 @@
+.footer {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 60px 0;
+    font-size: 14px;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 760px) {
+    .footer-top {
+        flex-direction: row;
+        row-gap: 60px;
+        column-gap: 40px;
+        justify-content: space-between;
+    }
+
+    .footer-column--text,
+    .footer-column--news {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1040px) {
+    .footer-column--text,
+    .footer-column--news {
+        width: auto;
+    }
+
+    .footer-column--text,
+    .footer-column--news {
+        max-width: 320px;
+    }
+}
+
+.footer-column h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.footer-column p,
+.footer-column a {
+    color: var(--secondary-color);
+    filter: brightness(.75);
+}
+
+.footer-column li+li {
+    margin-top: 10px;
+}
+
+.footer-column a {
+    transition: .9s color, 0.9s filter;
+}
+
+.footer-column a:hover {
+    color: var(--secondary-color);
+    filter: brightness(1);
+}
+
+.footer-column.footer-column--news form {
+    margin-top: 20px;
+}
+
+.footer-column.footer-column--news input,
+.footer-column.footer-column--news button {
+    appearance: none;
+    outline: none;
+    line-height: 50px;
+}
+
+.footer-column.footer-column--news input {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 0 16px;
+}
+
+.footer-column.footer-column--news button {
+    margin-top: 10px;
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid #ddd;
+    padding: 0 32px;
+    border: none;
+    transition: .4s color, .4s background-color;
+    width: 100%;
+}
+
+.footer-column.footer-column--news button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.footer-bottom{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-cards {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-column-news-message{
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: var(--secondary-color) !important;
+    filter: none !important;
+}

@@ -25,7 +25,6 @@
       {% assign collection = collections[section.settings.collection] %}
       {% if collection %}
         <div class="collection-grid">
-          {% assign productCount = 0 %}
           {% for product in collection.products limit: section.settings.show_products %}
             {% render 'card-product',
               card_product: product,
@@ -73,6 +72,12 @@
       "id": "show_rating",
       "default": true,
       "label": "Show Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating_count",
+      "default": true,
+      "label": "Show Rating Count"
     },
     {
       "type": "checkbox",

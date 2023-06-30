@@ -1,0 +1,82 @@
+<div class="center-pulse" id="reload">
+  {% if product.available %}
+    {% if product.inventory_quantity == 0 %}
+      <div class="circle pulse red"></div>
+      <span class="availability-text">Ausverkauft. Bitte kontaktieren Sie uns für weitere Informationen.</span>
+    {% elsif product.inventory_quantity < 10 %}
+      <div class="circle pulse yellow"></div>
+      <span class="availability-text">Fast ausverkauft. Nur noch {{ product.inventory_quantity }} verfügbar.</span>
+    {% else %}
+      <div class="circle pulse green"></div>
+      <span class="availability-text">Auf Lager. In 24h versandbereit.</span>
+    {% endif %}
+  {% else %}
+    <div class="circle pulse red"></div>
+    <span class="availability-text">Ausverkauft. Bitte kontaktieren Sie uns für weitere Informationen.</span>
+  {% endif %}
+</div>
+
+<style>
+  .circle {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 8px 0 0;
+  }
+
+  .pulse.green {
+    animation: pulse-animation-green 1.5s infinite;
+  }
+  .pulse.red {
+    animation: pulse-animation-red 1.5s infinite;
+  }
+  .pulse.yellow {
+    animation: pulse-animation-yellow 1.5s infinite;
+  }
+
+  @keyframes pulse-animation-green {
+    0% {
+      box-shadow: 0 0 0 0px lightgreen;
+    }
+    100% {
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+  }
+  @keyframes pulse-animation-yellow {
+    0% {
+      box-shadow: 0 0 0 0px orange;
+    }
+    100% {
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+  }
+  @keyframes pulse-animation-red {
+    0% {
+      box-shadow: 0 0 0 0px darkred;
+    }
+    100% {
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+  }
+  .availability {
+    display: flex;
+    align-items: center;
+  }
+
+  .availability-text {
+    font-size: 12px;
+  }
+
+  .circle.pulse.green {
+    background-color: #7cff84;
+  }
+
+  .circle.pulse.yellow {
+    background-color: #ffab2c;
+  }
+
+  .circle.pulse.red {
+    background-color: #ff7f7f;
+  }
+</style>

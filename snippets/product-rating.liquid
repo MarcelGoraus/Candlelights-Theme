@@ -1,0 +1,54 @@
+{% assign reviews = product.metafields.reviews %}
+{% assign rating = reviews.rating %}
+
+<div class="product-rating">
+  <span class="product-rating-stars" aria-label="{{ rating.value | default: 'Keine Bewertungen' }} von 5 Sternen">
+    {% if rating.value != blank %}
+      {% assign rating_decimal = 0 %}
+      {% assign decimal = rating.value.rating | modulo: 1 %}
+      {% if decimal > 0.2 and decimal < 0.8 %}
+        {% assign rating_decimal = 0.5 %}
+      {% elsif decimal >= 0.8 %}
+        {% assign rating_decimal = 1 %}
+      {% else %}
+        {% assign rating_decimal = 0 %}
+      {% endif %}
+
+      {% assign solidStars = rating.value.rating | floor | min: 5 %}
+      {% assign emptyStars = 5 | minus: solidStars %}
+      {% assign decimal = rating.value.rating | minus: solidStars %}
+
+      {% if decimal > 0 %}
+        {% if decimal >= 0.5 %}
+          {% assign halfStar = true %}
+        {% else %}
+          {% assign emptyStars = emptyStars | minus: 1 %}
+        {% endif %}
+      {% endif %}
+
+      {% for i in (1..solidStars) %}
+        <i class="fa-solid fa-star"></i>
+      {% endfor %}
+
+      {% if halfStar %}
+        <i class="fa-solid fa-star-half-stroke"></i>
+        {% assign emptyStars = emptyStars | minus: 1 %}
+      {% endif %}
+
+      {% for i in (1..emptyStars) %}
+        <i class="fa-regular fa-star"></i>
+      {% endfor %}
+
+      {% if show_rating_count %}
+        <span class="product-rating-count">({{ reviews.rating_count }} Bewertungen)</span>
+      {% endif %}
+    {% else %}
+      {% for i in (1..5) %}
+        <i class="fa-regular fa-star"></i>
+      {% endfor %}
+      {% if show_rating_count %}
+        <span class="product-rating-count">(0 Bewertungen)</span>
+      {% endif %}
+    {% endif %}
+  </span>
+</div>
