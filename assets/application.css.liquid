@@ -2,19 +2,18 @@
 font-family: 'Fraunces', serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Lobster', cursive;
-*/:root {
+*/
+
+:root {
 
   /* Color Palette */
   /* Dark Gray */
-  --primary-color: {{ settings.primary-color }}
-  ;
+  --primary-color: {{ settings.primary-color }};
   /* White */
-  --secondary-color: {{ settings.secondary-color }}
-  ;
+  --secondary-color: {{ settings.secondary-color }};
 
   /* gold */
-  --accent-color: {{ settings.accent-color }}
-  ;
+  --accent-color: {{ settings.accent-color }};
 
 
   /* Font Sizes */
@@ -104,4 +103,11 @@ HELPERS
 
 .text-right {
   text-align: right;
+}
+
+img,
+svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }

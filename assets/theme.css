@@ -1,0 +1,31 @@
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/**
+    - PAGE
+*/
+
+.pageheader {
+    position: relative;
+    margin: 35px 0;
+}
+
+.sectionheader__heading{
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    line-height: 120%;
+}
+
+/**
+    - BUTTONS
+*/
+

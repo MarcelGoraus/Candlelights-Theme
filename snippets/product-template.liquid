@@ -13,90 +13,60 @@
         <div class="product--medias__preview">
           {% if product.selected_or_first_available_variant.featured_image %}
             {% assign featured = product.selected_or_first_available_variant.featured_image %}
-            {% render 'product-media', media: featured %}
+            <img id="product-image" src="{{ featured | image_url }}">
           {% else %}
             {% assign featured = product.featured_image %}
-            {% render 'product-media', media: featured %}
+            <img id="product-image" src="{{ featured | image_url }}">
           {% endif %}
         </div>
         <ul class="product--medias__thumbnail">
-          {% for media in product.images %}
-            <li class="{% if image == featured %}selected{% endif %}">{% render 'product-media', media: media %}</li>
+          {% for image in product.images %}
+            <li class="{% if image == featured %}selected{% endif %}"><img src="{{ image | image_url: master }}"></li>
           {% endfor %}
         </ul>
       </div>
-      <div class="product--information"></div>
-    </div>
 
-    {{ product.title }}
+      <!-- PRODUKT INFORMATION -->
+      <div class="product--information">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'vendor' %}
+              <h6 class="product--vendor">{{ product.vendor }}</h6>
+            {% when 'rating' %}
 
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'vendor' %}
-          {{ product.vendor }}
-        {% when 'rating' %}
+            {% when 'title' %}
+              <h1 class="product--title">{{ product.title }}</h1>
+            {% when 'price' %}
+              <div class="product--prices">
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  <p class="product--prices__compare">{{ current_variant.compare_at_price | money }}</p>
+                {% endif %}
+                <p class="product--prices__price">{{ current_variant.price | money }}</p>
+              </div>
+            {% when 'in_stock' %}
+              {% render 'product-instock', product: current_variant %}
 
-        {% when 'title' %}
-          {{ product.title }}
-        {% when 'price' %}
-          {{ product.price | money }}
-        {% when 'variant_selector' %}
+            {% when 'variant_selector' %}
 
-        {% when 'quantity' %}
+            {% when 'quantity' %}
 
-        {% when 'description' %}
+            {% when 'description' %}
+              <p class="product--description">
+                {{ product.description }}
+              </p>
+            {% when 'buy_buttons' %}
+              {% render 'buy-buttons',
+                block: block,
+                product: product,
+                product_form_id: product_form_id,
+                section_id: section.id,
+                show_pickup_availability: true
+              %}
+            {% else %}
 
-        {% when 'checkout_button' %}
-
-        {% when 'in_stock' %}
-          {% render 'product-instock', product: current_variant %}
-        {% else %}
-
-      {% endcase %}
-    {% endfor %}
-
-    {% unless product.available %}
-      <div id="sold-out">
-        {% form 'contact' %}
-          {% if form.posted_successfully? %}
-            <p class="accent-text">Thanks! We will notify you when this product becomes available!</p>
-          {% else %}
-            <p>
-              Click <a id="notify-me" href="#"><strong>here</strong></a> to be notified by email when
-              {{ product.title }} becomes available.
-            </p>
-          {% endif %}
-          {% if form.errors %}
-            <div class="error feedback accent-text">
-              <p>Please provide a valid email address.</p>
-            </div>
-          {% endif %}
-          {% unless form.posted_successfully? %}
-            <div id="notify-me-wrapper" class="clearfix" style="display:none">
-              {% if customer %}
-                <input type="hidden" name="contact[email]" value="{{ customer.email }}">
-              {% else %}
-                <input
-                  style="float:left; width:180px;"
-                  required="required"
-                  type="email"
-                  name="contact[email]"
-                  placeholder="your@email.com"
-                  class="styled-input{% if form.errors contains 'email' %} error{% endif %}"
-                  value="{{ contact.fields.email }}"
-                >
-              {% endif %}
-              <input
-                type="hidden"
-                name="contact[body]"
-                value="Please notify me when {{ product.title | escape }} becomes available."
-              >
-              <input style="float:left; margin-left:5px;" class="btn styled-submit" type="submit" value="Send">
-            </div>
-          {% endunless %}
-        {% endform %}
+          {% endcase %}
+        {% endfor %}
       </div>
-      <br>
-    {% endunless %}
+    </div>
   </div>
 </div>

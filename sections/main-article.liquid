@@ -1,0 +1,21 @@
+<article class="article" data-section-id="" data-section-type="">
+  <div class="article__imagewrapper"></div>
+  <div class="article__wrapper">
+    <div class="article__content">
+      <header class="article__header">
+        <div class="article__meta">
+          <span class="article__metaitem">{{ article.tags }}</span>
+        </div>
+        <h1 class="article__title">{{ article.title }}</h1>
+      </header>
+      <div class="article__body"></div>
+      <footer class="article__footer"></footer>
+    </div>
+  </div>
+</article>
+
+<div class="page-width">
+  <h1>{{ article.title }}</h1>
+  <small>{{ article.author }}</small>
+  <time datetime="{{ article.created_at | date: '%d.%m.%Y'  }}">{{ article.created_at | date: '%d.%m.%Y' }}</time>
+</div>

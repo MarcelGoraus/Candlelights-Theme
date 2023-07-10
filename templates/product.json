@@ -24,8 +24,8 @@
                 "description": {
                     "type": "description"
                 },
-                "checkout_button": {
-                    "type": "checkout_button"
+                "buy_buttons": {
+                    "type": "buy_buttons"
                 },
                 "in_stock": {
                     "type": "in_stock"

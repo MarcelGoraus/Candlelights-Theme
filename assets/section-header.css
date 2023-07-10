@@ -59,7 +59,7 @@
 }
 
 /* Common Styles */
-header {
+.navigation {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 20px;

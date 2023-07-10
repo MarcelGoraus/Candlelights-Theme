@@ -9,8 +9,8 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      {%- for block in section.blocks -%}
-        <div {{ block.shopify_attributes }}>
+      <div class="section-faq-page" {{ block.shopify_attributes }}>
+        {%- for block in section.blocks -%}
           {% case block.type %}
             {% when 'question' %}
               <div class="section-faq">
@@ -28,8 +28,8 @@
                 </div>
               </div>
           {% endcase %}
-        </div>
-      {%- endfor -%}
+        {%- endfor -%}
+      </div>
     {%- endif -%}
   </div>
 </section>
@@ -40,7 +40,6 @@
   faqs.forEach((faq) => {
     faq.addEventListener('click', () => {
       faq.classList.toggle('active');
-      console.log('es geht');
     });
   });
 </script>

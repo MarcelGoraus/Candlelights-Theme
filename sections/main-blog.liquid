@@ -1,0 +1,145 @@
+{{ 'section-blog.css' | asset_url | stylesheet_tag }}
+
+{% assign text_align = section.settings.text_align | prepend: 'text-' %}
+
+{% style %}
+  .blog-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+  }
+{% endstyle %}
+
+<div id="section-blog-template" data-section-id="{{ section.id }}" data-section-type="article-list">
+  <div class="blog">
+    <div class="page-width">
+      <header class="pageheader">
+        <!-- page header content here -->
+        <div class="sectionheader {{ text_align }}">
+          <h1 class="sectionheader__heading">{{ section.settings.title }}</h1>
+
+          {% if section.settings.blog_show_tags %}
+            <ul class="blog-navigation">
+              <li>
+                <a
+                  href="{{ blog.url }}"
+                  class="{% if current_tags.size == 0 or current_tags == null %}active{% endif %}"
+                  >Alle</a
+                >
+              </li>
+              {% for tag in blog.all_tags %}
+                <li>
+                  <a
+                    href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+                    class="{% if current_tags contains tag %}active{% endif %}"
+                  >
+                    {{ tag }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </header>
+    </div>
+
+    <div class="blog-wrapper">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'blog_image_text' %}
+
+          {% when 'blog_articles' %}
+
+          {% else %}
+
+        {% endcase %}
+      {% endfor %}
+      {% paginate blog.articles by 12 %}
+        {% for article in blog.articles %}
+          <div class="blog-box">
+            {% if article.image %}
+              <img class="post-img" src="{{ article.image }}" alt="{{ article.image.alt }}">
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'post-img' }}
+            {% endif %}
+            <h2 class="blog-tag">{{ article.tags }}</h2>
+            <p class="blog-title">{{ article.title }}</p>
+            <span class="blog-body">{{ article.content | truncatewords: 15 }}</span>
+            <p class="blog-link"><a href="{{ article.url }}"> mehr lesen..</a></p>
+          </div>
+
+          {% comment %}
+              <div>
+              <h2>
+                <a href="{{ article.url }}">{{ article.title }}</a>
+              </h2>
+              {{ article.author }} @ {{ article.created_at }}
+              <div>
+                {% if article.excerpt.size > 0 %}
+                  {{ article.excerpt }}
+                {% else %}
+                  <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endcomment %}
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          {{ paginate | default_pagination }}
+        {% endif %}
+      {% endpaginate %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Page",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "blog_show_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Natures Remedy - Unser Journal"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Ausrichtung",
+      "options": [
+        {
+          "value": "left",
+          "label": "Text links"
+        },
+        {
+          "value": "center",
+          "label": "Text zentriert"
+        },
+        {
+          "value": "right",
+          "label": "Text rechts"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "page_width",
+      "label": "Breitenfläche",
+      "default": 1240,
+      "min": 700,
+      "max": 1440,
+      "step": 20
+    }
+  ]
+}
+{% endschema %}
