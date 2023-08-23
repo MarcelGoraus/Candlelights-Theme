@@ -8,36 +8,42 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .featured-collection{
+    background: {{ section.settings.background_color }};
+  }
+{% endstyle %}
 
-<div style="background: {{ section.settings.background_color }};">
-  <div class="collection section-{{ section.id }}">
-    <div class="page-width">
-      <div class="collection__title">
-        {% if section.settings.title != blank %}
-          {% assign titleAlign = section.settings.title_align %}
-          <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
-            {{ section.settings.title }}
-          </h2>
-        {% endif %}
-      </div>
-
-      {% assign collection = collections[section.settings.collection] %}
-      {% if collection %}
-        <div class="collection-grid">
-          {% for product in collection.products limit: section.settings.show_products %}
-            {% render 'card-product',
-              card_product: product,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              show_badge: section.settings.show_badge
-            %}
-          {% endfor %}
-        </div>
-      {% else %}
-        <p>Die angegebene Sammlung existiert nicht.</p>
+<div class="collection section-{{ section.id }}">
+  <div
+    class="page-width"
+    data-aos="fade-left"
+    data-aos-duration="350"
+  >
+    <div class="collection__title">
+      {% if section.settings.title != blank %}
+        {% assign titleAlign = section.settings.title_align %}
+        <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+          {{ section.settings.title }}
+        </h2>
       {% endif %}
     </div>
+
+    {% assign collection = collections[section.settings.collection] %}
+    {% if collection %}
+      <div class="collection-grid">
+        {% for product in collection.products limit: section.settings.show_products %}
+          {% render 'card-product',
+            card_product: product,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            show_badge: section.settings.show_badge
+          %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>Die angegebene Sammlung existiert nicht.</p>
+    {% endif %}
   </div>
 </div>
 
@@ -45,7 +51,7 @@
 {
   "name": "t:sections.featured-collection.name",
   "tag": "section",
-  "class": "section",
+  "class": "section featured-collection",
   "disabled_on": {
     "groups": ["header", "footer"]
   },

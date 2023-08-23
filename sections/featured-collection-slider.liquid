@@ -1,0 +1,161 @@
+{% comment %}
+  featured-collection-slider.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Featured Collection"-Abschnitts.
+{% endcomment %}
+{{ 'section-featured-collection-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+<div style="background: {{ section.settings.background_color }};" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    {% assign collection = collections[section.settings.collection] %}
+    {% if collection %}
+      <div class="featured-collection-slider__page-container">
+        <div
+          class="featured-collection-slider__page1-5-w"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
+          <div class="featured-collection-slider__title">
+            {% if section.settings.title != blank %}
+              <h1>{{ section.settings.title }}</h1>
+            {% endif %}
+          </div>
+          <div class="featured-collection-slider__body">
+            {% if section.settings.description != blank %}
+              <p>
+                {{ section.settings.description }}
+              </p>
+            {% endif %}
+          </div>
+          {% if section.settings.button_label != blank %}
+            <div class="featured-collection-slider__button">
+              <a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+            </div>
+          {% endif %}
+        </div>
+        <div
+          class="featured-collection-slider__page4-5-w"
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
+          <div class="swiper">
+            <div class="featured-collection-slider__slide-container--{{ section.id }}">
+              <div
+                class="featured-collection-slider__card-wrapper swiper-wrapper"
+              >
+                {% for item in collection.products %}
+                  <div class="featured-collection-slider__card swiper-slide">
+                    <div class="featured-collection-slider__image-box">
+                      {% if item.featured_image != blank %}
+                        <img
+                          src="{{ item.featured_image | img_url: 'master' }}'"
+                          loading="lazy"
+                          alt="{{ item.featured_image.alt }}"
+                        >
+
+                      {% else %}
+                        {{ 'image' | placeholder_svg_tag }}
+                      {% endif %}
+                      <button class="button">Schnellansicht</button>
+                    </div>
+                    <div class="featured-collection-slider__product-details">
+                      <h6 class="featured-collection-slider__product-vendor">{{ item.vendor }} - {{ item.type }}</h6>
+                      <h3 class="featured-collection-slider__product-name">{{ item.title }}</h3>
+                      <div class="featured-collection-slider__product-price">
+                        {% if item.compare_at_price %}
+                          <span class="featured-collection-slider__compare-at-price">
+                            {{- item.compare_at_price | money -}}
+                          </span>
+                        {% endif %}
+                        <span class="featured-collection-slider__price">{{ item.price | money }}</span>
+                      </div>
+                      <div class="featured-collection-slider__button full checkout">
+                        <a href="{{ item.url }}">zum produkt</a>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <p>Die angegebene Sammlung existiert nicht.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.featured-collection-slider.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection-slider.settings.title.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "default": "lorem ipsum dolar itmar",
+      "label": "t:sections.featured-collection-slider.settings.description.label"
+    },
+    {
+      "type": "collection",
+      "label": "t:sections.featured-collection-slider.settings.collection.label",
+      "id": "collection"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.featured-collection-slider.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.featured-collection-slider.settings.button_link.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "category": "test"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  var swiper = new Swiper('.featured-collection-slider__slide-container--{{ section.id }}', {
+    spaceBetween: 20,
+    grabCursor: 'true',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      520: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1000: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>

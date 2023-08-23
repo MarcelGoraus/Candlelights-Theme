@@ -32,7 +32,13 @@
           </div>
         {% elsif block.type == 'text' %}
           <div class="footer-column footer-column--text">
-            <h2>{{ block.settings.heading }}</h2>
+            <h2>
+              {% if block.settings.heading != blank %}
+                {{- block.settings.heading }}
+              {% else %}
+                {{- shop.name }}
+              {% endif -%}
+            </h2>
             {{ block.settings.text }}
           </div>
         {% endif %}
@@ -40,7 +46,15 @@
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copyright">{{ section.settings.copyright }}</p>
+      <p class="footer-copyright">
+        {% if section.settings.copyright != blank %}
+          © 2023
+          {{- section.settings.copyright }}
+        {% else %}
+          © 2023
+          {{ shop.name }}
+        {% endif -%}
+      </p>
       {% if section.settings.credit_cards %}
         <div class="footer-cards"></div>
       {% endif %}

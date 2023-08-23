@@ -76,16 +76,104 @@ h6 {
 
 a {
   text-decoration: none;
-  color: var(--primary_text);
+  color: var(--primary-color);
 }
 
 li {
   list-style: none;
 }
 
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+select,
+button,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="number"] {
+  display: block;
+  width: 100%;
+}
+
+a,
+button,
+label,
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  width:100%;
+  max-width: 100%;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+select,
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="number"] {
+  height: 36px;
+  line-height: 34px;
+  border-radius: calc(var(12px) / 2);
+  border: 1px solid var(--primary-color);
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+}
+
+select {
+  display: inline-block;
+  padding: 0 32px 0 16px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right 8px center;
+  background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48'%3E%3Cpath d='m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z'/%3E%3C/svg%3E");
+}
+
+
 /*
-HELPERS
+    Helpers
 */
+.hide {
+  display: none;
+}
 
 .page-width {
   max-width: var(--width);

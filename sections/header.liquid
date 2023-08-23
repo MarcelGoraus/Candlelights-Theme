@@ -4,7 +4,7 @@
   <div class="page-width">
     <nav class="navigation-content">
       <div class="navigation-logo">
-        <a href="#">Natures Remedy</a>
+        <a href="#">{{ shop.name }}</a>
       </div>
       <div class="navigation-list">
         <ul>
@@ -35,7 +35,7 @@
   <!-- Neues Element für die Sidebar-Overlay-Hintergrund -->
   <div class="sidebar-menu">
     <div class="sidebar-header">
-      <a href="#">Natures Remedy</a>
+      <a href="#">{{ shop.name }}</a>
     </div>
     <ul class="sidebar-list">
       {% for link in section.settings.menu.links %}

@@ -63,8 +63,8 @@
         "main-page": {
             "name": "Seite"
         },
-        "main-product":{
-            "name":"Produkt"
+        "main-product": {
+            "name": "Produkt"
         },
         "rich-text": {
             "name": "Rich Text",
@@ -164,6 +164,183 @@
                     "name": "FAQ"
                 }
             }
+        },
+        "featured-collection-slider": {
+            "name": "Vorgestellte Kategorie Slider",
+            "settings": {
+                "title": {
+                    "label": "Überschrifft"
+                },
+                "description": {
+                    "label": "Beschreibung"
+                },
+                "collection": {
+                    "label": "Kategorie"
+                },
+                "button_label": {
+                    "label": "Schaltflächentext"
+                },
+                "button_link": {
+                    "label": "Schaltflächenlink"
+                }
+            },
+            "presets": {
+                "name": "Vorgestellte Kategorie Slider"
+            }
+        },
+        "featured-product": {
+            "name": "Vorgestellte Produkt",
+            "blocks": {
+                "info": {
+                    "name": "Produkt Informationen"
+                },
+                "rating": {
+                    "name": "Produkt Bewertung",
+                    "settings": {
+                        "checkbox": {
+                            "label": "Bewertungs-Text anzeigen"
+                        }
+                    }
+                },
+                "availability_selector": {
+                    "name": "Verfügbarkeit"
+                },
+                "price": {
+                    "name": "Preis"
+                },
+                "title": {
+                    "name": "Produkt Name"
+                },
+                "vendor": {
+                    "name": "Produkt Hersteller"
+                },
+                "description": {
+                    "name": "Produkt Beschreibung"
+                },
+                "quantity_selector": {
+                    "name": "Produkt anzahl"
+                },
+                "variant_picker": {
+                    "name": "Varianten"
+                },
+                "add_to_cart": {
+                    "name": "Verkaufs Button"
+                }
+            },
+            "settings": {
+                "product": {
+                    "label": "Produkt"
+                }
+            },
+            "presets": {
+                "name": "Vorgestelltes Produkt"
+            }
+        },
+        "text_with_icon": {
+            "name": "Text Icons",
+            "settings": {
+                "title": {
+                    "label": "Titel"
+                },
+                "align_text": {
+                    "label": "Text ausrichtung",
+                    "options": {
+                        "left": {
+                            "label": "links"
+                        },
+                        "center": {
+                            "label": "Mitte"
+                        }
+                    }
+                },
+                "icon_color": {
+                    "label": "Icon Farbe"
+                }
+            },
+            "blocks": {
+                "block": {
+                  "name": "Spalte",
+                  "settings": {
+                    "icon": {
+                      "label": "Icon",
+                      "options": {
+                        "bills": {
+                          "label": "Bills"
+                        },
+                        "calendar": {
+                          "label": "Kalender"
+                        },
+                        "cart": {
+                          "label": "Wagen"
+                        },
+                        "charity": {
+                          "label": "Wohltätigkeit"
+                        },
+                        "chat": {
+                          "label": "Plaudern"
+                        },
+                        "envelope": {
+                          "label": "Umschlag"
+                        },
+                        "gears": {
+                          "label": "Zahnräder"
+                        },
+                        "gift": {
+                          "label": "Geschenk"
+                        },
+                        "globe": {
+                          "label": "Globus"
+                        },
+                        "package": {
+                          "label": "Paket"
+                        },
+                        "phone": {
+                          "label": "Telefon"
+                        },
+                        "plant": {
+                          "label": "Pflanze"
+                        },
+                        "recycle": {
+                          "label": "Recyceln"
+                        },
+                        "ribbon": {
+                          "label": "Band"
+                        },
+                        "sales-tag": {
+                          "label": "Verkaufspreis"
+                        },
+                        "shield": {
+                          "label": "Schild"
+                        },
+                        "stopwatch": {
+                          "label": "Stoppuhr"
+                        },
+                        "store": {
+                          "label": "Geschäft"
+                        },
+                        "thumbs-up": {
+                          "label": "Daumen hoch"
+                        },
+                        "trophy": {
+                          "label": "Trophäe"
+                        },
+                        "truck": {
+                          "label": "Lkw"
+                        },
+                        "wallet": {
+                          "label": "Brieftasche"
+                        }
+                      }
+                    },
+                    "title": {
+                      "label": "Überschrift"
+                    },
+                    "text": {
+                      "label": "Text"
+                    }
+                  }
+                }
+              } 
         }
     }
 }

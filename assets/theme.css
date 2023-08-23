@@ -10,6 +10,10 @@
     text-align: right;
 }
 
+.hide{
+    display: none;
+}
+
 /**
     - PAGE
 */
@@ -19,7 +23,7 @@
     margin: 35px 0;
 }
 
-.sectionheader__heading{
+.sectionheader__heading {
     letter-spacing: 0px;
     text-transform: uppercase;
     line-height: 120%;
@@ -29,3 +33,208 @@
     - BUTTONS
 */
 
+
+/* Fügen Sie diesen CSS-Code zu Ihrer Stylesheet-Datei hinzu */
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .btn-default {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+  }
+  
+  .btn-default:hover {
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+  }
+  
+  .btn-uppercase {
+    text-transform: uppercase;
+  }
+  
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+  
+  .px-4 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+
+
+
+
+
+.popover-button {
+    width: max-content;
+}
+
+.popover-button svg {
+    margin-left: 10px;
+}
+
+.popover-button svg {
+    margin-right: 10px;
+}
+
+.popover-button svg {
+    position: relative;
+    top: -1px;
+    /* For pixel perfect */
+    transition: transform 0.2s ease-in-out;
+}
+
+.popover-button[aria-expanded="true"] svg {
+    transform: rotateZ(180deg);
+}
+
+/**
+    - WIDTH
+*/
+
+.section-container {
+    display: flex;
+    margin: auto;
+    gap: 20px;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.product-facet__sort-by-title {
+    padding-right: 7px;
+}
+
+
+/**
+ * --------------------------------------------------------------------
+ * ICON
+ * --------------------------------------------------------------------
+ */
+
+.icon {
+    display: block;
+    vertical-align: middle;
+    background: none;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.icon--inline {
+    display: inline-block;
+}
+
+/* Simple component allowing to align a text with an icon */
+.icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.icon-text svg,
+.icon-text img {
+    margin-right: 12px;
+}
+
+.icon-text svg,
+.icon-text img {
+    margin-left: 12px;
+}
+
+@supports (scale: 1) {
+    .icon--direction-aware {
+        scale: -1 1;
+        /* Allows to have better support if it is combined with other transforms */
+    }
+}
+
+@supports not (scale: 1) {
+    .icon--direction-aware {
+        transform: scale(-1, 1);
+    }
+}
+
+/**
+ * --------------------------------------------------------------------
+ * INSTOCK PULSE
+ * --------------------------------------------------------------------
+ */
+
+ .circle {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 8px 0 0;
+  }
+
+  .pulse.green {
+    animation: pulse-animation-green 1.5s infinite;
+  }
+  .pulse.red {
+    animation: pulse-animation-red 1.5s infinite;
+  }
+  .pulse.yellow {
+    animation: pulse-animation-yellow 1.5s infinite;
+  }
+
+  @keyframes pulse-animation-green {
+    0% {
+      box-shadow: 0 0 0 0px lightgreen;
+    }
+    100% {
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+  }
+  @keyframes pulse-animation-yellow {
+    0% {
+      box-shadow: 0 0 0 0px orange;
+    }
+    100% {
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+  }
+  @keyframes pulse-animation-red {
+    0% {
+      box-shadow: 0 0 0 0px red;
+    }
+    100% {
+      box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+  }
+  .availability {
+    display: flex;
+    align-items: center;
+  }
+
+  .availability-text {
+    font-size: 12px;
+  }
+
+  .circle.pulse.green {
+    background-color: #7cff84;
+  }
+
+  .circle.pulse.yellow {
+    background-color: #ffab2c;
+  }
+
+  .circle.pulse.red {
+    background-color: #ff7f7f;
+  }

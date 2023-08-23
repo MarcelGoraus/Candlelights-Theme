@@ -52,4 +52,20 @@
     font-size: 14px;
     color: #777;
   }
+
+  .collections__page-details{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .collections__product-sort-by--container {
+    display: flex;
+    align-items: center;
+  }
   
+  @media screen and (min-width: 1000px){
+  .collections__product-sort-by--body {
+      position: relative;
+  }
+}

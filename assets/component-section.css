@@ -1,5 +1,6 @@
 .section {
     background: var(--secondary-color);
+    padding: 20px 10px;
 }
 
 .section-header {

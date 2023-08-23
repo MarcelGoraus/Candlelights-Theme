@@ -1,0 +1,21 @@
+.text-with-icons__blocks {
+    display: flex;
+    gap: 10px;
+    margin: auto;
+}
+
+.text-with-icons__block {
+    width: 20%;
+    margin: auto;
+}
+
+.text-with-icons__block-title h3 {
+    margin: auto;
+    font-size: var(--h5-font-size);
+}
+
+.text-with-icons__block-text {
+    margin: auto;
+    font-size: var(--h6-font-size);
+    width: 70%;
+}

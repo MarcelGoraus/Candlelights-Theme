@@ -2,8 +2,46 @@
 
 <div class="collections">
   <div class="page-width section-{{ section.id }}">
-    {% paginate collection.products by 3 %}
+    <div class="collections__header">
       <h1 class="collections__heading">{{ collection.title }}</h1>
+      <div class="collections__page-details">
+        <div class="collections__product-counter">Produkte ({{ collection.products.size }})</div>
+        <div class="collections__product-sort-by--container">
+          <span class="product-facet__sort-by-title text--subdued hidden-pocket">Sortieren nach</span>
+
+          <div class="collections__product-sort-by--body">
+            <button
+              type="button"
+              is="toggle-button"
+              class="popover-button hidden-pocket"
+              aria-expanded="true"
+              aria-controls="sort-by-popover"
+            >
+              <span id="sort-by-selected-value" style="pointer-events: none">Ausgewählt</span>
+              <svg focusable="false" width="12" height="8" class="icon icon--chevron icon--inline" viewBox="0 0 12 8">
+                <path fill="none" d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="2"></path>
+              </svg>
+            </button>
+          </div>
+
+          {% comment %}
+              <select name="" id="sort-by" class="collections__product-sort-by">
+              {% for option in collection.sort_options %}
+                <option
+                  value="{{ option.value }}"
+                  {% if option.value == collection.sort_by %}
+                    selected
+                  {% endif %}
+                >
+                  {{ option.name }}
+                </option>
+              {% endfor %}
+            </select>
+          {% endcomment %}
+        </div>
+      </div>
+    </div>
+    {% paginate collection.products by 3 %}
       <div class="collections-grid">
         {% for product in collection.products %}
           <div class="collections-item">

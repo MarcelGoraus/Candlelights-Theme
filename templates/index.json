@@ -1,13 +1,32 @@
 {
-    "sections": {
-      "featured_collection": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "Featured products"
-        }
+  "sections": {
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "collection": "sales",
+        "show_vendor": true,
+        "show_rating": true,
+        "show_rating_count": true,
+        "show_badge": true,
+        "show_products": 4,
+        "background_color": "#ffffff",
+        "title_align": "center"
       }
     },
-    "order": [
-      "featured_collection"
-    ]
-  }
+    "featured_collection_slider": {
+      "type": "featured-collection-slider",
+      "settings": {
+        "title": "Sommer Düfte",
+        "description": "Entdecke unsere erfrischende Sommerkollektion von Kerzen und tauche ein in den Duft des sonnigen Urlaubsgefühls für dein Zuhause.",
+        "collection": "kerzen-1",
+        "button_label": "Jetzt Shoppen",
+        "button_link": "shopify:\/\/collections\/sales"
+      }
+    }
+  },
+  "order": [
+    "featured_collection",
+    "featured_collection_slider"
+  ]
+}
