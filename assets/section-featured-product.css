@@ -5,7 +5,7 @@
 
 
 .product-variants {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .option {
@@ -17,7 +17,8 @@
 .option h6 {
     text-transform: none;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 
@@ -41,7 +42,6 @@
     text-transform: uppercase
   }
   .product-variants label.radio input:checked+span{
-    border-color: var(--secondary-color);
     background: var(--primary-color);
     color: var(--secondary-color);
   }
@@ -49,8 +49,6 @@
     opacity: .6;
     cursor: default;
   }
-
-
 
 .featured-product__option-radio span {
     display: inline-block;
@@ -134,4 +132,25 @@
     border: none;
     color: var(--primary-color);
     font-size: 16px;
+}
+
+/**
+PRODUKT INFORMATION
+*/
+.featured-product__vendor {
+    font-size: var(--h5-font-size);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    line-height: var(--h2-line-height);
+}
+
+.featured-product__title {
+    font-size: var(--h2-font-size);
+    color: var(--primary-color);
+    line-height: var(--h1-line-height);
+    font-weight: 600;
+}
+
+.featured-product__description {
+    margin: 5px 0;
 }

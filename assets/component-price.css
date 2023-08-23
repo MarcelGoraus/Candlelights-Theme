@@ -32,3 +32,21 @@
     background-color: #3498DB;
   }
   
+
+.featured-product__price {
+    display: flex;
+    align-items: center;
+}
+
+.product--prices__compare{
+  text-decoration: line-through;
+  font-size: var(--h3-font-size);
+}
+
+.product--prices__price {
+  margin-left: 10px;
+  font-size: var(--h1-font-size);
+  font-weight: 600;
+  line-height: var(--h1-line-height);
+  color: var(--primary-color);
+}

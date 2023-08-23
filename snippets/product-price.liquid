@@ -1,0 +1,8 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<div id="product-price" class="featured-product__price">
+  {% if current_variant.compare_at_price > current_variant.price %}
+    <p class="product--prices__compare">{{ current_variant.compare_at_price | money }}</p>
+  {% endif %}
+  <p class="product--prices__price">{{ current_variant.price | money }}</p>
+</div>

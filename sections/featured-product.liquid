@@ -43,9 +43,7 @@
                 <h6>{{ product.vendor }} - {{ product.type }}</h6>
               </div>
             {% when 'price' %}
-              <div id="product-price" class="featured-product__price">
-                <h3>{{ current_variant.price | money }}</h3>
-              </div>
+              {% render 'product-price', product: product %}
             {% when 'availability_selector' %}
               <div id="availability-container" class="availability">
                 {% render 'product-instock', product: current_variant %}
@@ -102,6 +100,7 @@
                             name="{{- option.name | handleize -}}"
                             value="{{- value | handleize | escape -}}"
                             data-price="{{ value.price }}"
+                            data-compare-price="{{ value.compare_at_price }}"
                             data-variant="{{ value.variant }}"
                             {% if option.selected_value == value %}
                               checked
@@ -132,6 +131,7 @@
                       value="{{ variant.id }}"
                       data-name="{{ variant.title | handleize | escape }}"
                       data-price="{{ variant.price }}"
+                      data-compare-price="{{ variant.compare_at_price }}"
                       data-variant="{{ variant.id }}"
                       data-inventory="{{ variant.inventory_quantity }}"
                       {%- if variant == current_variant %}
@@ -204,11 +204,19 @@
             btn.removeAttr('disabled');
             btn.text('Add To Cart');
 
-            const priceElement = $('.featured-product__price h3');
+            const comparePriceElement = $('.featured-product__price .product--prices__compare');
+            const pricePriceElement = $('.featured-product__price .product--prices__price');
             const selectedVariantPrice = $(elm).data('price');
+            const selectedVariantComparePrice = $(elm).data('compare-price'); // Nehmen Sie an, dass diese Daten im HTML-Element vorhanden sind
+
             if (selectedVariantPrice) {
               const formattedPrice = formatMoney(selectedVariantPrice, '{{ shop.money_format }}');
-              priceElement.html(`${formattedPrice}`);
+              pricePriceElement.html(formattedPrice); // Ändere 'priceElement' zu 'pricePriceElement'
+            }
+
+            if (selectedVariantComparePrice) {
+              const formattedComparePrice = formatMoney(selectedVariantComparePrice, '{{ shop.money_format }}');
+              comparePriceElement.html(formattedComparePrice);
             }
 
             const availabilityContainer = $('#availability-container');
@@ -236,9 +244,6 @@
 
                   availabilityText.html(availabilityMessage);
                   pulseCircle.removeClass().addClass(`circle ${pulseClass}`);
-                  console.log('currentVariant:', currentVariant);
-                  console.log('pulseCircle:', pulseCircle);
-                  console.log('availabilityText:', availabilityText);
                 }
               }
             }
