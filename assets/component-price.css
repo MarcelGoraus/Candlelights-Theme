@@ -33,9 +33,17 @@
   }
   
 
+  @media (min-width: 1024px) {
+    .featured-product__price {
+      justify-content: flex-start!important;
+  }
+  }
+
 .featured-product__price {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .product--prices__compare{
