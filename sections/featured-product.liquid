@@ -72,7 +72,9 @@
                   id="quantity"
                   name="quantity"
                   value="1"
-                  class="featured-product__quantity-selector-input">
+                  readonly
+                  class="featured-product__quantity-selector-input"
+                  max="{{ current_variant.inventory_quantity }}">
                 <button type="button" class="featured-product__quantity-selector-plus">
                   {% render 'icon-plus' %}
                 </button>
@@ -184,30 +186,108 @@
   function change_image(image) {
     var main_image = $('#product-image');
     main_image.attr('src', image.src);
-
-// Entfernen Sie die Klasse 'selected' von allen Bildern
     $('.featured-product__medias--thumbnail li').removeClass('selected');
-
-// Fügen Sie die Klasse 'selected' dem ausgewählten Bild hinzu
     $(image).parent('li').addClass('selected');
   }
-
 
   $(document).ready(async () => {
     const product_url = '{{ product.url }}';
 
+    const updateProductInfo = (selectedVariant) => {
+      const btn = $('[name="add"]');
+      const comparePriceElement = $('.featured-product__price .product--prices__compare');
+      const pricePriceElement = $('.featured-product__price .product--prices__price');
+
+      if (selectedVariant.data('sold')) {
+        btn.attr('disabled', 'true');
+        btn.text('Sold Out');
+      } else {
+        btn.removeAttr('disabled');
+        btn.text('Add To Cart');
+
+        if (selectedVariant.data('price')) {
+          const formattedPrice = formatMoney(selectedVariant.data('price'), '{{ shop.money_format }}');
+          pricePriceElement.html(formattedPrice);
+        }
+        if (selectedVariant.data('comparePrice')) {
+          const formattedComparePrice = formatMoney(selectedVariant.data('comparePrice'), '{{ shop.money_format }}');
+          comparePriceElement.html(formattedComparePrice);
+        }
+
+        const availabilityContainer = $('#availability-container');
+        if (availabilityContainer.length) {
+          const pulseCircle = availabilityContainer.find('.circle');
+          const availabilityText = availabilityContainer.find('.availability-text');
+
+          if (pulseCircle.length && availabilityText.length) {
+            let availabilityMessage = '';
+            let pulseClass = '';
+            let selectedVariantInventory = selectedVariant.data('inventory');
+
+            if (selectedVariantInventory === 0) {
+              availabilityMessage = 'Ausverkauft. Bitte kontaktieren Sie uns für weitere Informationen.';
+              pulseClass = 'pulse red';
+            } else if (selectedVariantInventory < 10) {
+              availabilityMessage = `Fast ausverkauft. Nur noch ${selectedVariantInventory} verfügbar.`;
+              pulseClass = 'pulse yellow';
+            } else {
+              availabilityMessage = `Auf Lager. In 24h versandbereit.`;
+              pulseClass = 'pulse green';
+            } availabilityText.html(availabilityMessage);
+            pulseCircle.removeClass().addClass(`circle ${pulseClass}`);
+          }
+        }
+
+        updateQuantityInput(selectedVariant.data('inventory'));
+        console.log(selectedVariant.data('name'));
+      }
+    };
+
+
+    const minusButton = $('.featured-product__quantity-selector-minus');
+    const plusButton = $('.featured-product__quantity-selector-plus');
+    const quantityInput = $('#quantity'); // Variable hier definieren
+
+    minusButton.on('click', () => {
+      let currentValue = parseInt(quantityInput.val());
+      if (currentValue > 1) {
+        currentValue--;
+        quantityInput.val(currentValue);
+      }
+    });
+
+    plusButton.on('click', () => {
+      let currentValue = parseInt(quantityInput.val());
+      const maxQuantity = parseInt(quantityInput.attr('max'));
+      if (currentValue < maxQuantity) {
+        currentValue = Math.min(currentValue + 1, maxQuantity);
+        quantityInput.val(currentValue);
+      }
+    });
+
+    const updateQuantityInput = (maxValue) => {
+      quantityInput.attr('max', maxValue);
+    };
+
     const variantSelector = async () => {
       const options = $('#product-variants .option');
-      let option_value = [];
+      let option_value = '';
       options.each((index, elm) => {
         let selected = $(elm).find('input:checked').val();
-        option_value.push(selected);
+        option_value = option_value + (
+          option_value
+            ? '-'
+            : ''
+        ) + selected;
       });
-      option_value = option_value.join('-');
-      console.log(option_value);
+
+      let optionMatched = false; // Flag to track if a matching option was found
 
       const selOptions = $('#variant_selector option');
       selOptions.each((index, elm) => {
+        if (optionMatched) {
+          return false; // Exit the loop once a matching option is found
+        }
         const name = $(elm).data('name');
         const sold = $(elm).data('sold');
         $(elm).removeAttr('selected');
@@ -221,59 +301,24 @@
             btn.removeAttr('disabled');
             btn.text('Add To Cart');
 
-            const comparePriceElement = $('.featured-product__price .product--prices__compare');
-            const pricePriceElement = $('.featured-product__price .product--prices__price');
-            const selectedVariantPrice = $(elm).data('price');
-            const selectedVariantComparePrice = $(elm).data('compare-price'); // Nehmen Sie an, dass diese Daten im HTML-Element vorhanden sind
-
-            if (selectedVariantPrice) {
-              const formattedPrice = formatMoney(selectedVariantPrice, '{{ shop.money_format }}');
-              pricePriceElement.html(formattedPrice); // Ändere 'priceElement' zu 'pricePriceElement'
-            }if (selectedVariantComparePrice) {
-              const formattedComparePrice = formatMoney(selectedVariantComparePrice, '{{ shop.money_format }}');
-              comparePriceElement.html(formattedComparePrice);
-            }
-
-            const availabilityContainer = $('#availability-container');
-            if (availabilityContainer.length) {
-              const currentVariant = JSON.parse($(elm).data('variant'));
-              const pulseCircle = availabilityContainer.find('.circle');
-
-              if (currentVariant && pulseCircle.length) {
-                const availabilityText = availabilityContainer.find('.availability-text');
-                if (availabilityText.length) {
-                  let availabilityMessage = '';
-                  let pulseClass = '';
-                  const selectedVariantInventory = $(elm).data('inventory');
-
-                  if (selectedVariantInventory == 0) {
-                    availabilityMessage = 'Ausverkauft. Bitte kontaktieren Sie uns für weitere Informationen.';
-                    pulseClass = 'pulse red';
-                  } else if (selectedVariantInventory < 10) {
-                    availabilityMessage = `Fast ausverkauft. Nur noch ${selectedVariantInventory} verfügbar.`;
-                    pulseClass = 'pulse yellow';
-                  } else {
-                    availabilityMessage = `Auf Lager. In 24h versandbereit.`;
-                    pulseClass = 'pulse green';
-                  } availabilityText.html(availabilityMessage);
-                  pulseCircle.removeClass().addClass(`circle ${pulseClass}`);
-                }
-              }
-            }
+            updateProductInfo($(elm)); // Pass $(elm) instead of elm
+            optionMatched = true; // Set the flag to true
+            quantityInput.val(1);
           }
         }
       });
     };
 
-    await variantSelector();
-    const optionSelectors = $('#product-variants label.radio');
-    optionSelectors.on('click', () => {
-      variantSelector().then(() => {
-        let variantId = $('#variant_selector').val();
-        let url = `${product_url}?variant=${variantId}`;
-        window.history.replaceState({}, '', url);
-      });
+    const options = $('#product-variants .option input');
+    options.on('change', async () => {
+      await variantSelector();
+      let variantId = $('#variant_selector').val();
+      let url = `${product_url}?variant=${variantId}`;
+      window.history.replaceState({}, '', url);
     });
+
+    await variantSelector(); // Initialisierung der Varianten
+
   });
 </script>
 

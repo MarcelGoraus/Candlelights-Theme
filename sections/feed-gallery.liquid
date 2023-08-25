@@ -1,0 +1,96 @@
+<div class="page-width">
+  <div class="feed-section">
+    <div class="feed-container">
+      <div class="feed-header">
+        <div class="feed-header-title">
+          <h1>{{ section.settings.title }}</h1>
+          <h2 class="feed-header-sub-title">{{ section.settings.description }}</h2>
+        </div>
+        <div class="feed-header-actions">
+          <div class="feed-header-action">
+            <a class="feed-header-action-button" href="{{ section.settings.feed_url }}">{% render 'icon-instagram' %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="feed-content">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.img_url }}">
+            {% if block.settings.feed_img != null %}
+              <img src="{{ block.settings.feed_img | img_url: 'original'}}" alt="">
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "t:sections.feed-gallery.name",
+    "class": "feed-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "t:sections.feed-gallery.settings.title.label",
+        "default": "Instagram Feed"
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "t:sections.feed-gallery.settings.description.label",
+        "default": "#Grovago"
+      }, {
+        "type": "url",
+        "id": "feed_url",
+        "label": "t:sections.feed-gallery.settings.feed_url.label"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "grid_item",
+        "name": "t:sections.feed-gallery.blocks.name",
+        "settings": [
+          {
+            "id": "feed_img",
+            "type": "image_picker",
+            "label": "t:sections.feed-gallery.blocks.settings.feed_img.label"
+          }, {
+            "type": "url",
+            "id": "img_url",
+            "label": "t:sections.feed-gallery.blocks.settings.img_url.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.feed-gallery.presets.feed-gallery.name",
+        "blocks": [
+          {
+            "type": "grid_item"
+          },
+          {
+            "type": "grid_item"
+          },
+          {
+            "type": "grid_item"
+          },
+          {
+            "type": "grid_item"
+          }, {
+            "type": "grid_item"
+          }, {
+            "type": "grid_item"
+          }
+        ]
+      }
+    ],
+    "disabled_on": {
+      "groups": ["footer", "header", "custom.popups"]
+    }
+  }
+{% endschema %}

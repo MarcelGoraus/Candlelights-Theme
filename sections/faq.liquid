@@ -13,20 +13,20 @@
         {%- for block in section.blocks -%}
           {% case block.type %}
             {% when 'question' %}
-              <div class="section-faq">
-                {%- if block.settings.title != blank -%}
-                  <div class="section-faq-title">
-                    <h2>{{ block.settings.title }}</h2>
-                  </div>
-                {%- endif -%}
-                <div class="section-faq-question">
-                  <h3>{{ block.settings.question }}</h3>
-                  {% render 'chevron-down' %}
+            <div class="section-faq">
+              {%- if block.settings.title != blank -%}
+                <div class="section-faq-title">
+                  <h2>{{ block.settings.title }}</h2>
                 </div>
-                <div class="section-faq-answer">
-                  <p>{{ block.settings.answer }}</p>
-                </div>
+              {%- endif -%}
+              <div class="section-faq-question">
+                <h3>{{ block.settings.question }}</h3>
+                {% render 'chevron-down' %}
               </div>
+              <div class="section-faq-answer">
+                <p>{{ block.settings.answer }}</p>
+              </div>
+            </div>
           {% endcase %}
         {%- endfor -%}
       </div>
@@ -45,55 +45,53 @@
 </script>
 
 {% schema %}
-{
-  "name": "t:sections.faq.name",
-  "class": "index-section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "t:sections.faq.settings.title.label",
-      "default": "FAQs"
+  {
+    "name": "t:sections.faq.name",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "t:sections.faq.settings.title.label",
+        "default": "FAQs"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "t:sections.faq.blocks.question.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "t:sections.faq.blocks.question.settings.title.label",
+            "default": "Frequently asked question"
+          }, {
+            "type": "text",
+            "id": "question",
+            "label": "t:sections.faq.blocks.question.settings.question.label",
+            "default": "Frequently asked question"
+          }, {
+            "type": "richtext",
+            "id": "answer",
+            "label": "t:sections.faq.blocks.question.settings.answer.label",
+            "default": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.faq.presets.faq.name",
+        "blocks": [
+          {
+            "type": "question"
+          }
+        ]
+      }
+    ],
+    "disabled_on": {
+      "groups": ["footer", "header", "custom.popups"]
     }
-  ],
-  "blocks": [
-    {
-      "type": "question",
-      "name": "t:sections.faq.blocks.question.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "t:sections.faq.blocks.question.settings.title.label",
-          "default": "Frequently asked question"
-        },
-        {
-          "type": "text",
-          "id": "question",
-          "label": "t:sections.faq.blocks.question.settings.question.label",
-          "default": "Frequently asked question"
-        },
-        {
-          "type": "richtext",
-          "id": "answer",
-          "label": "t:sections.faq.blocks.question.settings.answer.label",
-          "default": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.faq.presets.faq.name",
-      "blocks": [
-        {
-          "type": "question"
-        }
-      ]
-    }
-  ],
-  "disabled_on": {
-    "groups": ["footer", "header", "custom.popups"]
   }
-}
 {% endschema %}
