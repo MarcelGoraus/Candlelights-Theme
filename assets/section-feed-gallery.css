@@ -6,6 +6,7 @@
 
 .shopify-section.feed-section{
     background: var(--secondary_background);
+    border-radius: 0;
 }
 
 .feed-container {
@@ -49,44 +50,33 @@ a.feed-header-action-button {
     fill: var(--secondary-color);
 }
 
+.feed-header-title h1 {
+    font-size: var(--h1-font-size);
+    line-height: var(--h1-line-height);
+}
+
 @media (max-width: 900px) {
     .feed-content {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        gap: 10px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(150px,150px));
-        margin: 20px 0;
+        grid-template-columns: repeat(auto-fill,minmax(200px,200px));
     }
   
     .feed-content img,
     .feed-content svg {
-      width: 150px; /* Breite auf 100% setzen, um die Spaltenbreite anzupassen */
-      height: 150px; /* Die Höhe passt sich automatisch an die Breite an */
-      object-fit: cover;
-      object-position: center;
+      width: 200px; /* Breite auf 100% setzen, um die Spaltenbreite anzupassen */
+      height: 200px; /* Die Höhe passt sich automatisch an die Breite an */
       fill: var(--secondary-color);
     }
   }
 
   @media (max-width: 425px) {
     .feed-content {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        gap: 10px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(75px,75px));
-        margin: 20px 0;
+        grid-template-columns: repeat(auto-fill,minmax(100px, 100px));
     }
   
     .feed-content img,
     .feed-content svg {
-      width: 75px; /* Breite auf 100% setzen, um die Spaltenbreite anzupassen */
-      height: 75px; /* Die Höhe passt sich automatisch an die Breite an */
-      object-fit: cover;
-      object-position: center;
+      width: 100px; /* Breite auf 100% setzen, um die Spaltenbreite anzupassen */
+      height: 100px; /* Die Höhe passt sich automatisch an die Breite an */
       fill: var(--secondary-color);
     }
   }
