@@ -21,12 +21,9 @@
         "description": "Entdecke unsere erfrischende Sommerkollektion von Kerzen und tauche ein in den Duft des sonnigen Urlaubsgefühls für dein Zuhause.",
         "collection": "kerzen-1",
         "button_label": "Jetzt Shoppen",
-        "button_link": "shopify:\/\/collections\/sales"
+        "button_link": "shopify://collections/sales"
       }
     }
   },
-  "order": [
-    "featured_collection",
-    "featured_collection_slider"
-  ]
+  "order": ["featured_collection", "featured_collection_slider"]
 }

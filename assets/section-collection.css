@@ -3,69 +3,69 @@
 }
 
 .collections-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
 
-  .collections-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    text-transform: uppercase;
-    background: var(--secondary_background);
-  }
+.collections-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-transform: uppercase;
+  background: var(--secondary_background);
+}
 
-  .collections-item__media{
-    height: 200px;
-    width: 100%;
-    overflow: hidden;
-  }
+.collections-item__media {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
 
-  .collections-item__img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all .4s ease;
-    object-position: center;
-  }
-  .collections-item__img:hover{
-    scale: 1.1;
-  }
-  
-  .collections-item__vendor {
-    font-size: calc(var(--h6-font-size) - (var(--h6-font-size) - 10px));
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .collections-item__title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .collections-item__price {
-    font-size: 14px;
-    color: #777;
-  }
+.collections-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  object-position: center;
+}
+.collections-item__img:hover {
+  scale: 1.1;
+}
 
-  .collections__page-details{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-  }
+.collections-item__vendor {
+  font-size: calc(var(--h6-font-size) - (var(--h6-font-size) - 10px));
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-  .collections__product-sort-by--container {
-    display: flex;
-    align-items: center;
-  }
-  
-  @media screen and (min-width: 1000px){
+.collections-item__title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.collections-item__price {
+  font-size: 14px;
+  color: #777;
+}
+
+.collections__page-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.collections__product-sort-by--container {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
   .collections__product-sort-by--body {
-      position: relative;
+    position: relative;
   }
 }

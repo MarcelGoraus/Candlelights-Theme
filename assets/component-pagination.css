@@ -1,32 +1,31 @@
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    margin: 10px 20px;
-  }
-  
-  .pagination a {
-    width: 70px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    color: var(--primary-color);
-    font-size: var(--large-font-size);
-    font-weight: 700;
-    transition: .3s linear;
-    background: var(--secondary-color);
-    border-bottom: 4px solid var(--primary-color);
-  }
-  
-  .pagination a:hover {
-    color: var(--accent-color);
-    border-bottom: 4px solid var(--accent-color);
-  }
-  
-  .pagination a.active {
-    color: var(--accent-color);
-    border-bottom: 4px solid var(--accent-color);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 10px 20px;
+}
+
+.pagination a {
+  width: 70px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: var(--primary-color);
+  font-size: var(--large-font-size);
+  font-weight: 700;
+  transition: 0.3s linear;
+  background: var(--secondary-color);
+  border-bottom: 4px solid var(--primary-color);
+}
+
+.pagination a:hover {
+  color: var(--accent-color);
+  border-bottom: 4px solid var(--accent-color);
+}
+
+.pagination a.active {
+  color: var(--accent-color);
+  border-bottom: 4px solid var(--accent-color);
+}

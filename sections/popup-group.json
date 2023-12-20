@@ -1,8 +1,6 @@
 {
-    "type": "custom.popups",
-    "name": "t:sections.popup-group.name",
-    "sections": {
-
-    },
-    "order":[]
+  "type": "custom.popups",
+  "name": "t:sections.popup-group.name",
+  "sections": {},
+  "order": []
 }

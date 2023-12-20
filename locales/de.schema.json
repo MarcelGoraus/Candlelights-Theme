@@ -1,381 +1,381 @@
 {
-    "sections": {
-        "announcement-bar": {
-            "name": "Ankündigungsleiste"
+  "sections": {
+    "announcement-bar": {
+      "name": "Ankündigungsleiste"
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "menu": {
+          "label": "Menü"
         },
-        "header": {
-            "name": "Header",
-            "settings": {
-                "menu": {
-                    "label": "Menü"
-                },
-                "searchform": {
-                    "label": "Produkt Suche"
-                }
-            }
-        },
-        "footer": {
-            "name": "Fußzeile"
-        },
-        "featured-collection": {
-            "name": "Vorgestellte Kategorie",
-            "settings": {
-                "title": {
-                    "label": "Überschrifft"
-                },
-                "title_align": {
-                    "label": "Text ausrichtung",
-                    "options__1": {
-                        "label": "Links"
-                    },
-                    "options__2": {
-                        "label": "Mitte"
-                    },
-                    "options__3": {
-                        "label": "Rechts"
-                    }
-                }
-            },
-            "presets": {
-                "name": "Vorgestellte Kategorie"
-            }
-        },
-        "contact-form": {
-            "name": "Kontaktformular",
-            "settings": {
-                "content": "Alle Einsendungen werden an die Kunden-E-Mail-Adresse deines Shops gesendet. [Mehr erfahren](https:\/\/help.shopify.com\/en\/manual\/using-themes\/change-the-layout\/add-contact-form#view-contact-form-submissions).",
-                "title": {
-                    "label": "Titel"
-                },
-                "text": {
-                    "label": "Text"
-                },
-                "show_phone": {
-                    "label": "Telefonnummer anzeigen"
-                }
-            },
-            "presets": {
-                "contact_form": {
-                    "name": "Kontaktformular"
-                }
-            }
-        },
-        "main-page": {
-            "name": "Seite"
-        },
-        "main-product": {
-            "name": "Produkt"
-        },
-        "rich-text": {
-            "name": "Rich Text",
-            "settings": {
-                "align_text": {
-                    "label": "Textausrichtung",
-                    "options": {
-                        "left": {
-                            "label": "Links"
-                        },
-                        "center": {
-                            "label": "Zentriert"
-                        },
-                        "right": {
-                            "label": "Rechts"
-                        }
-                    }
-                },
-                "narrow_column": {
-                    "label": "Schmale Spalte"
-                },
-                "divider": {
-                    "label": "Abschnittsteiler anzeigen"
-                }
-            },
-            "blocks": {
-                "heading": {
-                    "name": "Überschrift",
-                    "settings": {
-                        "title": {
-                            "label": "Überschrift"
-                        }
-                    }
-                },
-                "text": {
-                    "name": "Text",
-                    "settings": {
-                        "enlarge_text": {
-                            "label": "Text vergrößern"
-                        },
-                        "text": {
-                            "label": "Text"
-                        }
-                    }
-                },
-                "button": {
-                    "name": "Schaltfläche",
-                    "settings": {
-                        "link": {
-                            "label": "Schaltflächenlink"
-                        },
-                        "link_text": {
-                            "label": "Schaltflächentext"
-                        }
-                    }
-                },
-                "page": {
-                    "name": "Seite",
-                    "settings": {
-                        "page_text": {
-                            "label": "Seite"
-                        }
-                    }
-                }
-            },
-            "presets": {
-                "rich_text": {
-                    "name": "Rich Text"
-                }
-            }
-        },
-        "faq": {
-            "name": "FAQ",
-            "settings": {
-                "title": {
-                    "label": "Überschrift"
-                }
-            },
-            "blocks": {
-                "question": {
-                    "name": "Frage",
-                    "settings": {
-                        "title": {
-                            "label": "Titel"
-                        },
-                        "question": {
-                            "label": "Frage"
-                        },
-                        "answer": {
-                            "label": "antwort"
-                        }
-                    }
-                }
-            },
-            "presets": {
-                "faq": {
-                    "name": "FAQ"
-                }
-            }
-        },
-        "feed-gallery": {
-            "name": "Instagram Feed",
-            "settings": {
-                "title": {
-                    "label": "Überschrift"
-                },
-                "description": {
-                    "label": "Beschreibung"
-                },
-                "feed_url": {
-                    "label": "Instagram URL"
-                }
-            },
-            "blocks": {
-                "name": "Feed Post",
-                "settings": {
-                    "feed_img": {
-                        "label": "Bild"
-                    },
-                    "img_url": {
-                        "label": "Bild URL"
-                    }
-                }
-            },
-            "presets": {
-                "feed-gallery": {
-                    "name": "Feed Gallery"
-                }
-            }
-        },
-        "featured-collection-slider": {
-            "name": "Vorgestellte Kategorie Slider",
-            "settings": {
-                "title": {
-                    "label": "Überschrifft"
-                },
-                "description": {
-                    "label": "Beschreibung"
-                },
-                "collection": {
-                    "label": "Kategorie"
-                },
-                "button_label": {
-                    "label": "Schaltflächentext"
-                },
-                "button_link": {
-                    "label": "Schaltflächenlink"
-                }
-            },
-            "presets": {
-                "name": "Vorgestellte Kategorie Slider"
-            }
-        },
-        "featured-product": {
-            "name": "Vorgestellte Produkt",
-            "blocks": {
-                "info": {
-                    "name": "Produkt Informationen"
-                },
-                "rating": {
-                    "name": "Produkt Bewertung",
-                    "settings": {
-                        "checkbox": {
-                            "label": "Bewertungs-Text anzeigen"
-                        }
-                    }
-                },
-                "availability_selector": {
-                    "name": "Verfügbarkeit"
-                },
-                "price": {
-                    "name": "Preis"
-                },
-                "title": {
-                    "name": "Produkt Name"
-                },
-                "vendor": {
-                    "name": "Produkt Hersteller"
-                },
-                "description": {
-                    "name": "Produkt Beschreibung"
-                },
-                "quantity_selector": {
-                    "name": "Produkt anzahl"
-                },
-                "variant_picker": {
-                    "name": "Varianten"
-                },
-                "add_to_cart": {
-                    "name": "Verkaufs Button"
-                }
-            },
-            "settings": {
-                "product": {
-                    "label": "Produkt"
-                }
-            },
-            "presets": {
-                "name": "Vorgestelltes Produkt"
-            }
-        },
-        "text_with_icon": {
-            "name": "Text Icons",
-            "settings": {
-                "title": {
-                    "label": "Titel"
-                },
-                "align_text": {
-                    "label": "Text ausrichtung",
-                    "options": {
-                        "left": {
-                            "label": "links"
-                        },
-                        "center": {
-                            "label": "Mitte"
-                        }
-                    }
-                },
-                "icon_color": {
-                    "label": "Icon Farbe"
-                }
-            },
-            "blocks": {
-                "block": {
-                  "name": "Spalte",
-                  "settings": {
-                    "icon": {
-                      "label": "Icon",
-                      "options": {
-                        "bills": {
-                          "label": "Bills"
-                        },
-                        "calendar": {
-                          "label": "Kalender"
-                        },
-                        "cart": {
-                          "label": "Wagen"
-                        },
-                        "charity": {
-                          "label": "Wohltätigkeit"
-                        },
-                        "chat": {
-                          "label": "Plaudern"
-                        },
-                        "envelope": {
-                          "label": "Umschlag"
-                        },
-                        "gears": {
-                          "label": "Zahnräder"
-                        },
-                        "gift": {
-                          "label": "Geschenk"
-                        },
-                        "globe": {
-                          "label": "Globus"
-                        },
-                        "package": {
-                          "label": "Paket"
-                        },
-                        "phone": {
-                          "label": "Telefon"
-                        },
-                        "plant": {
-                          "label": "Pflanze"
-                        },
-                        "recycle": {
-                          "label": "Recyceln"
-                        },
-                        "ribbon": {
-                          "label": "Band"
-                        },
-                        "sales-tag": {
-                          "label": "Verkaufspreis"
-                        },
-                        "shield": {
-                          "label": "Schild"
-                        },
-                        "stopwatch": {
-                          "label": "Stoppuhr"
-                        },
-                        "store": {
-                          "label": "Geschäft"
-                        },
-                        "thumbs-up": {
-                          "label": "Daumen hoch"
-                        },
-                        "trophy": {
-                          "label": "Trophäe"
-                        },
-                        "truck": {
-                          "label": "Lkw"
-                        },
-                        "wallet": {
-                          "label": "Brieftasche"
-                        }
-                      }
-                    },
-                    "title": {
-                      "label": "Überschrift"
-                    },
-                    "text": {
-                      "label": "Text"
-                    }
-                  }
-                }
-            },
-            "presets": {
-                "text_with_icon": {
-                    "name": "Text mit Icon"
-                }
-            } 
+        "searchform": {
+          "label": "Produkt Suche"
         }
+      }
+    },
+    "footer": {
+      "name": "Fußzeile"
+    },
+    "featured-collection": {
+      "name": "Vorgestellte Kategorie",
+      "settings": {
+        "title": {
+          "label": "Überschrifft"
+        },
+        "title_align": {
+          "label": "Text ausrichtung",
+          "options__1": {
+            "label": "Links"
+          },
+          "options__2": {
+            "label": "Mitte"
+          },
+          "options__3": {
+            "label": "Rechts"
+          }
+        }
+      },
+      "presets": {
+        "name": "Vorgestellte Kategorie"
+      }
+    },
+    "contact-form": {
+      "name": "Kontaktformular",
+      "settings": {
+        "content": "Alle Einsendungen werden an die Kunden-E-Mail-Adresse deines Shops gesendet. [Mehr erfahren](https://help.shopify.com/en/manual/using-themes/change-the-layout/add-contact-form#view-contact-form-submissions).",
+        "title": {
+          "label": "Titel"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "show_phone": {
+          "label": "Telefonnummer anzeigen"
+        }
+      },
+      "presets": {
+        "contact_form": {
+          "name": "Kontaktformular"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Seite"
+    },
+    "main-product": {
+      "name": "Produkt"
+    },
+    "rich-text": {
+      "name": "Rich Text",
+      "settings": {
+        "align_text": {
+          "label": "Textausrichtung",
+          "options": {
+            "left": {
+              "label": "Links"
+            },
+            "center": {
+              "label": "Zentriert"
+            },
+            "right": {
+              "label": "Rechts"
+            }
+          }
+        },
+        "narrow_column": {
+          "label": "Schmale Spalte"
+        },
+        "divider": {
+          "label": "Abschnittsteiler anzeigen"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Überschrift",
+          "settings": {
+            "title": {
+              "label": "Überschrift"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "enlarge_text": {
+              "label": "Text vergrößern"
+            },
+            "text": {
+              "label": "Text"
+            }
+          }
+        },
+        "button": {
+          "name": "Schaltfläche",
+          "settings": {
+            "link": {
+              "label": "Schaltflächenlink"
+            },
+            "link_text": {
+              "label": "Schaltflächentext"
+            }
+          }
+        },
+        "page": {
+          "name": "Seite",
+          "settings": {
+            "page_text": {
+              "label": "Seite"
+            }
+          }
+        }
+      },
+      "presets": {
+        "rich_text": {
+          "name": "Rich Text"
+        }
+      }
+    },
+    "faq": {
+      "name": "FAQ",
+      "settings": {
+        "title": {
+          "label": "Überschrift"
+        }
+      },
+      "blocks": {
+        "question": {
+          "name": "Frage",
+          "settings": {
+            "title": {
+              "label": "Titel"
+            },
+            "question": {
+              "label": "Frage"
+            },
+            "answer": {
+              "label": "antwort"
+            }
+          }
+        }
+      },
+      "presets": {
+        "faq": {
+          "name": "FAQ"
+        }
+      }
+    },
+    "feed-gallery": {
+      "name": "Instagram Feed",
+      "settings": {
+        "title": {
+          "label": "Überschrift"
+        },
+        "description": {
+          "label": "Beschreibung"
+        },
+        "feed_url": {
+          "label": "Instagram URL"
+        }
+      },
+      "blocks": {
+        "name": "Feed Post",
+        "settings": {
+          "feed_img": {
+            "label": "Bild"
+          },
+          "img_url": {
+            "label": "Bild URL"
+          }
+        }
+      },
+      "presets": {
+        "feed-gallery": {
+          "name": "Feed Gallery"
+        }
+      }
+    },
+    "featured-collection-slider": {
+      "name": "Vorgestellte Kategorie Slider",
+      "settings": {
+        "title": {
+          "label": "Überschrifft"
+        },
+        "description": {
+          "label": "Beschreibung"
+        },
+        "collection": {
+          "label": "Kategorie"
+        },
+        "button_label": {
+          "label": "Schaltflächentext"
+        },
+        "button_link": {
+          "label": "Schaltflächenlink"
+        }
+      },
+      "presets": {
+        "name": "Vorgestellte Kategorie Slider"
+      }
+    },
+    "featured-product": {
+      "name": "Vorgestellte Produkt",
+      "blocks": {
+        "info": {
+          "name": "Produkt Informationen"
+        },
+        "rating": {
+          "name": "Produkt Bewertung",
+          "settings": {
+            "checkbox": {
+              "label": "Bewertungs-Text anzeigen"
+            }
+          }
+        },
+        "availability_selector": {
+          "name": "Verfügbarkeit"
+        },
+        "price": {
+          "name": "Preis"
+        },
+        "title": {
+          "name": "Produkt Name"
+        },
+        "vendor": {
+          "name": "Produkt Hersteller"
+        },
+        "description": {
+          "name": "Produkt Beschreibung"
+        },
+        "quantity_selector": {
+          "name": "Produkt anzahl"
+        },
+        "variant_picker": {
+          "name": "Varianten"
+        },
+        "add_to_cart": {
+          "name": "Verkaufs Button"
+        }
+      },
+      "settings": {
+        "product": {
+          "label": "Produkt"
+        }
+      },
+      "presets": {
+        "name": "Vorgestelltes Produkt"
+      }
+    },
+    "text_with_icon": {
+      "name": "Text Icons",
+      "settings": {
+        "title": {
+          "label": "Titel"
+        },
+        "align_text": {
+          "label": "Text ausrichtung",
+          "options": {
+            "left": {
+              "label": "links"
+            },
+            "center": {
+              "label": "Mitte"
+            }
+          }
+        },
+        "icon_color": {
+          "label": "Icon Farbe"
+        }
+      },
+      "blocks": {
+        "block": {
+          "name": "Spalte",
+          "settings": {
+            "icon": {
+              "label": "Icon",
+              "options": {
+                "bills": {
+                  "label": "Bills"
+                },
+                "calendar": {
+                  "label": "Kalender"
+                },
+                "cart": {
+                  "label": "Wagen"
+                },
+                "charity": {
+                  "label": "Wohltätigkeit"
+                },
+                "chat": {
+                  "label": "Plaudern"
+                },
+                "envelope": {
+                  "label": "Umschlag"
+                },
+                "gears": {
+                  "label": "Zahnräder"
+                },
+                "gift": {
+                  "label": "Geschenk"
+                },
+                "globe": {
+                  "label": "Globus"
+                },
+                "package": {
+                  "label": "Paket"
+                },
+                "phone": {
+                  "label": "Telefon"
+                },
+                "plant": {
+                  "label": "Pflanze"
+                },
+                "recycle": {
+                  "label": "Recyceln"
+                },
+                "ribbon": {
+                  "label": "Band"
+                },
+                "sales-tag": {
+                  "label": "Verkaufspreis"
+                },
+                "shield": {
+                  "label": "Schild"
+                },
+                "stopwatch": {
+                  "label": "Stoppuhr"
+                },
+                "store": {
+                  "label": "Geschäft"
+                },
+                "thumbs-up": {
+                  "label": "Daumen hoch"
+                },
+                "trophy": {
+                  "label": "Trophäe"
+                },
+                "truck": {
+                  "label": "Lkw"
+                },
+                "wallet": {
+                  "label": "Brieftasche"
+                }
+              }
+            },
+            "title": {
+              "label": "Überschrift"
+            },
+            "text": {
+              "label": "Text"
+            }
+          }
+        }
+      },
+      "presets": {
+        "text_with_icon": {
+          "name": "Text mit Icon"
+        }
+      }
     }
+  }
 }

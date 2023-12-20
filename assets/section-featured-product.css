@@ -4,11 +4,11 @@
 }
 
 .product-variants {
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: center;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
 }
 
 .option {
@@ -165,52 +165,51 @@ PRODUKT INFORMATION
 }
 
 .featured-product__medias {
-    align-self: center;
-  }
-  
-  .featured-product__medias--preview img {
-    height: 300px;
-    width: 100%;
-    margin: auto;
-  }
-  
-  .featured-product__medias--thumbnail {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    justify-content: center;
-  }
-  
-  .featured-product__medias--thumbnail li.selected {
-    border: 2px solid var(--primary-color);
-  }
-  
-  .featured-product__medias--thumbnail li.selected,
-  .featured-product__medias--thumbnail li:hover {
-    opacity: 1;
-  }
-  
-  .featured-product__medias--thumbnail li {
-    width: 80px;
-    opacity: 0.5;
-    transition: 0.2s opacity;
-    cursor: pointer;
-  }
-  
-  .featured-product__medias--thumbnail li img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-  
-  .featured-product__information {
-    max-width: 480px;
-    width: 100%;
-    align-self: center;
-    text-align: center;
-    margin: 40px 10px auto;
-  }
-  
+  align-self: center;
+}
+
+.featured-product__medias--preview img {
+  height: 300px;
+  width: 100%;
+  margin: auto;
+}
+
+.featured-product__medias--thumbnail {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.featured-product__medias--thumbnail li.selected {
+  border: 2px solid var(--primary-color);
+}
+
+.featured-product__medias--thumbnail li.selected,
+.featured-product__medias--thumbnail li:hover {
+  opacity: 1;
+}
+
+.featured-product__medias--thumbnail li {
+  width: 80px;
+  opacity: 0.5;
+  transition: 0.2s opacity;
+  cursor: pointer;
+}
+
+.featured-product__medias--thumbnail li img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.featured-product__information {
+  max-width: 480px;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  margin: 40px 10px auto;
+}
 
 @media (min-width: 1024px) {
   .featured-product__content {
@@ -249,6 +248,5 @@ PRODUKT INFORMATION
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
+  }
 }
-}
-

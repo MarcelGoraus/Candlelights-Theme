@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@shopify/themekit": "^1.1.9",
+    "themekit": "^2.1.0"
+  },
+  "name": "workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.4.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js",
+    "dev": "theme watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

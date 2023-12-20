@@ -1,8 +1,8 @@
 {
-    "sections": {
-        "main-collection":{
-            "type": "main-collection"
-        }
-    },
-    "order": ["main-collection"]
+  "sections": {
+    "main-collection": {
+      "type": "main-collection"
+    }
+  },
+  "order": ["main-collection"]
 }

@@ -1,50 +1,48 @@
 {
-    "sections": {
-        "product": {
-            "type": "main-product",
-            "blocks": {
-                "vendor": {
-                    "type": "vendor"
-                },
-                "rating": {
-                    "type": "rating"
-                },
-                "title": {
-                    "type": "title"
-                },
-                "price": {
-                    "type": "price"
-                },
-                "variant_selector": {
-                    "type": "variant_selector"
-                },
-                "quantity": {
-                    "type": "quantity"
-                },
-                "description": {
-                    "type": "description"
-                },
-                "buy_buttons": {
-                    "type": "buy_buttons"
-                },
-                "in_stock": {
-                    "type": "in_stock"
-                }
-            },
-            "block_order": [
-                "vendor",
-                "rating",
-                "title",
-                "price",
-                "variant_selector",
-                "quantity",
-                "description",
-                "checkout_button",
-                "in_stock"
-            ]
+  "sections": {
+    "product": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor"
+        },
+        "rating": {
+          "type": "rating"
+        },
+        "title": {
+          "type": "title"
+        },
+        "price": {
+          "type": "price"
+        },
+        "variant_selector": {
+          "type": "variant_selector"
+        },
+        "quantity": {
+          "type": "quantity"
+        },
+        "description": {
+          "type": "description"
+        },
+        "buy_buttons": {
+          "type": "buy_buttons"
+        },
+        "in_stock": {
+          "type": "in_stock"
         }
-    },
-    "order": [
-        "product"
-    ]
+      },
+      "block_order": [
+        "vendor",
+        "rating",
+        "title",
+        "price",
+        "variant_selector",
+        "quantity",
+        "description",
+        "checkout_button",
+        "in_stock"
+      ]
+    }
+  },
+  "order": ["product"]
 }

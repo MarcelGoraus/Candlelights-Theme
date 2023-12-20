@@ -1,11 +1,9 @@
 {
-    "sections": {
-        "form": {
-            "type": "contact-form",
-            "settings": {}
-        }
-    },
-    "order": [
-        "form"
-    ]
+  "sections": {
+    "form": {
+      "type": "contact-form",
+      "settings": {}
+    }
+  },
+  "order": ["form"]
 }

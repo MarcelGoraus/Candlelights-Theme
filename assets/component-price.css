@@ -1,52 +1,50 @@
 .product-price {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .compare-at-price {
-    font-size: 12px;
-    color: gray;
-    text-decoration: line-through;
-  }
-  
-  .badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 5px 10px;
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: 'Montserrat', sans-serif;
-  }
+  font-size: 16px;
+  font-weight: bold;
+}
 
-  .sales {
-    background-color: #E74C3C;
-  }
+.compare-at-price {
+  font-size: 12px;
+  color: gray;
+  text-decoration: line-through;
+}
 
-  .sold-out{
-    background-color: #95A5A6;
-  }
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
 
-  .new{
-    background-color: #3498DB;
-  }
-  
+.sales {
+  background-color: #e74c3c;
+}
 
-  @media (min-width: 1024px) {
-    .featured-product__price {
-      justify-content: flex-start!important;
+.sold-out {
+  background-color: #95a5a6;
+}
+
+.new {
+  background-color: #3498db;
+}
+
+@media (min-width: 1024px) {
+  .featured-product__price {
+    justify-content: flex-start !important;
   }
-  }
+}
 
 .featured-product__price {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-.product--prices__compare{
+.product--prices__compare {
   text-decoration: line-through;
   font-size: var(--h3-font-size);
 }

@@ -3,10 +3,10 @@
   margin: 5px 0;
 }
 
-.product-rating-stars{
+.product-rating-stars {
   color: var(--accent-color);
 }
 
-.product-rating-count{
+.product-rating-count {
   color: var(--primary-color);
 }

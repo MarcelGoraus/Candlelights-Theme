@@ -46,8 +46,6 @@ var formatMoney = function (cents, format) {
   return formatString.replace(placeholderRegex, value);
 };
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.querySelector(".navigation-toggle");
   const sidebarMenu = document.querySelector(".sidebar-menu");
@@ -65,5 +63,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 AOS.init({
-  once: true
+  once: true,
 });

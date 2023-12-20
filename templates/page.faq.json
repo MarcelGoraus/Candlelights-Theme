@@ -1,71 +1,69 @@
 {
-    "sections": {
-        "main-faq": {
-            "type": "faq",
-            "blocks": {
-              "template--19726967013683__8fe1de26-c812-4981-a946-117209bd11fe-1687901680e7df3334-0": {
-                "type": "question",
-                "settings": {
-                  "title": "Bezahlmethoden",
-                  "question": "Wie kann ich bezahlen?",
-                  "answer": "<p>Momentan bieten wir dir folgenden Zahlungsdienste an: Sofortüberweisung, PayPal, AmazonPay, Kreditkarten (Mastercard, Visa, American Express), GooglePay, ApplePay.<\/p>"
-                }
-              },
-              "19dd2563-7260-4c79-82ae-b4565758b56b": {
-                "type": "question",
-                "settings": {
-                  "title": "Fragen Zum Produkt",
-                  "question": "Wo produziert ihr?",
-                  "answer": "<p>Unsere Kerzen werden mit viel Sorgfalt und Hingabe in Deutschland handgefertigt. Jeder Schritt, von der Auswahl der hochwertigen Materialien bis hin zur Gestaltung und Veredelung, erfolgt in unserer heimischen Manufaktur. Wir sind stolz darauf, unseren Kunden qualitativ herausragende Kerzen anzubieten, die die Kreativität und das handwerkliche Können unserer talentierten deutschen Handwerker widerspiegeln. Entdecken Sie die einzigartige Qualität und den Charme unserer in Deutschland produzierten Kerzen.<\/p>"
-                }
-              },
-              "ebdff538-559b-416c-92f7-a2301adbd441": {
-                "type": "question",
-                "settings": {
-                  "title": "Rücksendungen",
-                  "question": "Wie kann ich meine Produkte zurücksenden?",
-                  "answer": "<p>Bevor du deine Produkte an uns zurücksendest, gib uns bitte kurz per <a href=\"\/pages\/contact\" title=\"Contact\">Kontaktformular<\/a> oder per E-Mail an <strong>info@naturesremady.de <\/strong>Bescheid. Unser Team wird dir alle wichtigen Infos mitteilen und dich bei der Rücksendung unterstützen.<br\/><\/p>"
-                }
-              },
-              "f304fd98-9cc8-4eaa-b679-44f0d06480ae": {
-                "type": "question",
-                "settings": {
-                  "title": "Versand & Lieferzeit",
-                  "question": "Wie lange dauert die Lieferung eurer Produkte?",
-                  "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.<\/p>"
-                }
-              },
-              "62189e66-ea58-4a95-94ae-93305d2032c0": {
-                "type": "question",
-                "settings": {
-                  "title": "",
-                  "question": "Erhalte ich eine Versandbestätigung?",
-                  "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.<\/p>"
-                }
-              },
-              "56b52b8c-9a66-4451-b428-411376d023e0": {
-                "type": "question",
-                "settings": {
-                  "title": "",
-                  "question": "Wohin versendet ihr überall?",
-                  "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.<\/p>"
-                }
-              }
-            },
-            "block_order": [
-              "template--19726967013683__8fe1de26-c812-4981-a946-117209bd11fe-1687901680e7df3334-0",
-              "19dd2563-7260-4c79-82ae-b4565758b56b",
-              "ebdff538-559b-416c-92f7-a2301adbd441",
-              "f304fd98-9cc8-4eaa-b679-44f0d06480ae",
-              "62189e66-ea58-4a95-94ae-93305d2032c0",
-              "56b52b8c-9a66-4451-b428-411376d023e0"
-            ],
-            "settings": {
-              "title": "FAQs"
-            }
+  "sections": {
+    "main-faq": {
+      "type": "faq",
+      "blocks": {
+        "template--19726967013683__8fe1de26-c812-4981-a946-117209bd11fe-1687901680e7df3334-0": {
+          "type": "question",
+          "settings": {
+            "title": "Bezahlmethoden",
+            "question": "Wie kann ich bezahlen?",
+            "answer": "<p>Momentan bieten wir dir folgenden Zahlungsdienste an: Sofortüberweisung, PayPal, AmazonPay, Kreditkarten (Mastercard, Visa, American Express), GooglePay, ApplePay.</p>"
           }
-    },
-    "order": [
-        "main-faq"
-    ]
+        },
+        "19dd2563-7260-4c79-82ae-b4565758b56b": {
+          "type": "question",
+          "settings": {
+            "title": "Fragen Zum Produkt",
+            "question": "Wo produziert ihr?",
+            "answer": "<p>Unsere Kerzen werden mit viel Sorgfalt und Hingabe in Deutschland handgefertigt. Jeder Schritt, von der Auswahl der hochwertigen Materialien bis hin zur Gestaltung und Veredelung, erfolgt in unserer heimischen Manufaktur. Wir sind stolz darauf, unseren Kunden qualitativ herausragende Kerzen anzubieten, die die Kreativität und das handwerkliche Können unserer talentierten deutschen Handwerker widerspiegeln. Entdecken Sie die einzigartige Qualität und den Charme unserer in Deutschland produzierten Kerzen.</p>"
+          }
+        },
+        "ebdff538-559b-416c-92f7-a2301adbd441": {
+          "type": "question",
+          "settings": {
+            "title": "Rücksendungen",
+            "question": "Wie kann ich meine Produkte zurücksenden?",
+            "answer": "<p>Bevor du deine Produkte an uns zurücksendest, gib uns bitte kurz per <a href=\"/pages/contact\" title=\"Contact\">Kontaktformular</a> oder per E-Mail an <strong>info@naturesremady.de </strong>Bescheid. Unser Team wird dir alle wichtigen Infos mitteilen und dich bei der Rücksendung unterstützen.<br/></p>"
+          }
+        },
+        "f304fd98-9cc8-4eaa-b679-44f0d06480ae": {
+          "type": "question",
+          "settings": {
+            "title": "Versand & Lieferzeit",
+            "question": "Wie lange dauert die Lieferung eurer Produkte?",
+            "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        },
+        "62189e66-ea58-4a95-94ae-93305d2032c0": {
+          "type": "question",
+          "settings": {
+            "title": "",
+            "question": "Erhalte ich eine Versandbestätigung?",
+            "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        },
+        "56b52b8c-9a66-4451-b428-411376d023e0": {
+          "type": "question",
+          "settings": {
+            "title": "",
+            "question": "Wohin versendet ihr überall?",
+            "answer": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19726967013683__8fe1de26-c812-4981-a946-117209bd11fe-1687901680e7df3334-0",
+        "19dd2563-7260-4c79-82ae-b4565758b56b",
+        "ebdff538-559b-416c-92f7-a2301adbd441",
+        "f304fd98-9cc8-4eaa-b679-44f0d06480ae",
+        "62189e66-ea58-4a95-94ae-93305d2032c0",
+        "56b52b8c-9a66-4451-b428-411376d023e0"
+      ],
+      "settings": {
+        "title": "FAQs"
+      }
+    }
+  },
+  "order": ["main-faq"]
 }
