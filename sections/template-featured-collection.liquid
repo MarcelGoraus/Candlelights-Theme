@@ -1,0 +1,136 @@
+{% comment %}
+  featured-collection.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Featured Collection"-Abschnitts.
+{% endcomment %}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .featured-collection{
+    background: {{ section.settings.background_color }};
+  }
+{% endstyle %}
+
+<div class="collection section-{{ section.id }}">
+  <div
+    class="page-width"
+    data-aos="fade-left"
+    data-aos-duration="350"
+  >
+    <div class="collection__title">
+      {% if section.settings.title != blank %}
+        {% assign titleAlign = section.settings.title_align %}
+        <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+    </div>
+
+    <div>
+        {% if section.setting.description != blank %}
+            <h5>
+                {{ sections.settings.description }}
+            </h5>
+        {% endif %}
+    </div>
+
+    {% assign collection = collections[section.settings.collection] %}
+    {% if collection %}
+      <div class="collection-grid">
+        {% for product in collection.products limit: section.settings.show_products %}
+          
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>Die angegebene Sammlung existiert nicht.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Sammlung",
+  "tag": "section",
+  "class": "section featured-collection",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+        "type": "inline_richtext",
+        "id": "description",
+        "default": "Beschreibung",
+        "label": "beschreibung";
+    },
+    {
+      "type": "collection",
+      "label": "Collection",
+      "id": "collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": true,
+      "label": "Show Vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "Show Rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating_count",
+      "default": true,
+      "label": "Show Rating Count"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "default": true,
+      "label": "Show Badge"
+    },
+    {
+      "type": "range",
+      "id": "show_products",
+      "default": 4,
+      "label": "Show Products",
+      "max": 20,
+      "min": 4,
+      "step": 4
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#fff",
+      "label": "Hintergrund Farbe"
+    },
+    {
+      "type": "select",
+      "id": "title_align",
+      "label": "t:sections.featured-collection.settings.title_align.label",
+      "options": [
+        { "value": "left", "label": "t:sections.featured-collection.settings.title_align.options__1.label" },
+        { "value": "center", "label": "t:sections.featured-collection.settings.title_align.options__2.label" },
+        { "value": "right", "label": "t:sections.featured-collection.settings.title_align.options__3.label" }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Katalog Sammlung"
+    }
+  ]
+}
+{% endschema %}

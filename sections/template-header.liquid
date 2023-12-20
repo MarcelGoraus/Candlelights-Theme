@@ -1,25 +1,55 @@
-<header>
-<ul>
-          {% for link in section.settings.menu.links %}
-            <li>
-              <a href="{{ link.url }}">
-                <span>{{ link.title }}</span>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-</header>
+<div class="header">
+  <ul class="header-links">
+    {% for link in section.settings.menu.links %}
+      <li>
+        <a href="{{ link.url }}">
+          <span>{{ link.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 
+
+  <div class="header-logo">
+    <a href="">{{shop.name}}</a>
+  </div>
+
+  <div class="header-icons">
+    {% if section.settings.searchform == true %}
+      <i class="bx bx-search"></i>
+    {% endif %}
+    <i class="bx bx-user"></i>
+    <i class="bx bx-shopping-bag">
+      <span>{{ cart.item_count }}</span>
+    </i>
+    <div class="header-toggle">
+      <i class="bx bx-menu"></i>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  window.addEventListener("scroll", function() {
+    var header = document.querySelector(".header");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
 {% schema %}
   {
-    "name": "Header",
+    "name": "t:sections.header.name",
     "settings": [
       {
         "type": "link_list",
         "id": "menu",
         "default": "main-menu",
         "label": "t:sections.header.settings.menu.label"
-      }, 
+      }, {
+        "type": "checkbox",
+        "id": "searchform",
+        "default": true,
+        "label": "t:sections.header.settings.searchform.label"
+      }
     ]
   }
 {% endschema %}

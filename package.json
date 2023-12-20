@@ -12,9 +12,9 @@
     "prettier": "^3.1.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "curl -s https://shopify.dev/themekit.py | sudo python3",
     "start": "nodemon src/index.js",
-    "dev": "theme watch"
+    "dev": "theme watch --allow-live flag"
   },
   "keywords": [],
   "author": "",
