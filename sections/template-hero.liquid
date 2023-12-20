@@ -1,0 +1,75 @@
+{% comment %}
+  template-hero.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Hero"-Abschnitts.
+{% endcomment %}
+{{ 'template-hero.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .hero-section{
+    background-color: {{ section.settings.background_color }} !important;
+  }
+{% endstyle %}
+
+{% assign image = section.settings.hero_image %}
+
+<div class="hero-section section-{{ section.id }}">
+
+    <div class="page-width">
+        <div class="hero-container">
+
+            <div class="hero-image">
+                {% if image != blank %}
+                    <img src="{{ image | img_url: 'medium' }}" alt="{{ image.alt }} Image">
+                  {% else %}
+                    {{ 'collection-6' | placeholder_svg_tag }}
+                  {% endif %}
+            </div>
+
+            <div class="hero-text">
+                <h1>{{ section.settings.title }}</h1>
+                <p>{{ section.settings.description }}</p>
+                <button>Jetzt Shoppen</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Section",
+    "tag": "section",
+    "class": "section hero-section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "hero_image",
+            "label": "Wähle ein Bild"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "default": "Grovago",
+            "label": "Überschrifft"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "description",
+            "default": "Entdecke bei Grovago die Kunst des Wohlfühlens. Unsere sorgfältig handgefertigten Kerzen, Duftöle, Badebomben und Pflegeprodukte bieten ein luxuriöses Wellnesserlebnis. Tauche ein in Entspannung, umgebe dich mit betörenden Düften und liebevolle Pflege. Grovago - Gönn dir das Beste!",
+            "label": "Beschreibung"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "default": "#fff",
+            "label": "Hintergrund Farbe"
+        }
+    ],
+    "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+  }
+{% endschema %}

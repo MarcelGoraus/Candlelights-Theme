@@ -1,0 +1,92 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s;
+  padding: 40px 100px;
+  z-index: 100000;
+}
+
+.header.sticky {
+  padding: 20px 100px;
+  background: #fff;
+}
+
+.header .header-logo {
+  position: relative;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--h1-font-size);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  width: 50%;
+}
+
+.header .header-links {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.header .header-links li {
+  position: relative;
+  list-style: none;
+}
+
+.header .header-links li a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: 0.6s;
+  font-size: var(--small-font-size);
+}
+
+.header .header-icons {
+  gap: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.header .header-icons .header-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .header-icons i {
+  font-size: var(--h2-font-size);
+}
+
+.header .header-icons .header-toggle {
+  display: none;
+}
+
+@media (max-width: 848px) {
+  .header {
+    padding: 40px 10px;
+  }
+
+  .header .header-links {
+    display: none;
+  }
+
+  .header .header-icons .header-toggle {
+    display: block;
+  }
+}

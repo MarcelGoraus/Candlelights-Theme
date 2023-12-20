@@ -1,60 +1,72 @@
 {% comment %}
-  featured-collection.liquid
+  template-featured-collection.liquid
   ---------------------------
-  Dieses Template dient zur Darstellung eines "Featured Collection"-Abschnitts.
+  Dieses Template dient zur Darstellung eines "Collection List"-Abschnitts.
 {% endcomment %}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'template-featured-collection.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-  .featured-collection{
-    background: {{ section.settings.background_color }};
+  .featured-collection-list{
+    background-color: {{ section.settings.background_color }} !important;
   }
 {% endstyle %}
 
-<div class="collection section-{{ section.id }}">
-  <div
-    class="page-width"
-    data-aos="fade-left"
-    data-aos-duration="350"
-  >
-    <div class="collection__title">
+<div class="featured-collection-list section-{{ section.id }}">
+  <div class="page-width" data-aos="zoom-in" data-aos-duration="350">
+    <div class="title">
       {% if section.settings.title != blank %}
         {% assign titleAlign = section.settings.title_align %}
-        <h2 class="collection__title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+        <h2 class="title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
           {{ section.settings.title }}
         </h2>
       {% endif %}
     </div>
 
-    <div>
-        {% if section.setting.description != blank %}
-            <h5>
-                {{ sections.settings.description }}
-            </h5>
-        {% endif %}
+    <div class="description">
+      {% if section.settings.description != blank %}
+        <h5 class="description{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+          {{ section.settings.description }}
+        </h5>
+      {% endif %}
     </div>
 
-    {% assign collection = collections[section.settings.collection] %}
-    {% if collection %}
-      <div class="collection-grid">
-        {% for product in collection.products limit: section.settings.show_products %}
-          
-        {% endfor %}
-      </div>
-    {% else %}
-      <p>Die angegebene Sammlung existiert nicht.</p>
-    {% endif %}
+    <div class="collections-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'collection_block' %}
+          {% assign collection = block.settings.collection %}
+          {% assign collectionImage = block.settings.collection_image %}
+
+          <a href="{{ collection.url }}">
+            <div class="collections-list-scale">
+              <div class="collection-item">
+                <div class="collection-image">
+                  {% if collectionImage != blank %}
+                    <img src="{{ collectionImage | img_url: 'medium' }}" alt="{{ collection.title }} Image">
+                  {% else %}
+                    {{ 'collection-6' | placeholder_svg_tag }}
+                  {% endif %}
+                </div>
+                
+                <h3 class="collection-title">{{ collection.title }}</h3>
+                <h5 class="collection-description">Shop {{ collection.title }}</h5>
+              </div>
+            </div>
+          </a>
+         
+
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
+
 
 {% schema %}
 {
   "name": "Collection Sammlung",
   "tag": "section",
-  "class": "section featured-collection",
+  "class": "section featured-collection-list",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
@@ -66,48 +78,10 @@
       "label": "t:sections.featured-collection.settings.title.label"
     },
     {
-        "type": "inline_richtext",
-        "id": "description",
-        "default": "Beschreibung",
-        "label": "beschreibung";
-    },
-    {
-      "type": "collection",
-      "label": "Collection",
-      "id": "collection"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "default": true,
-      "label": "Show Vendor"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating",
-      "default": true,
-      "label": "Show Rating"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_rating_count",
-      "default": true,
-      "label": "Show Rating Count"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_badge",
-      "default": true,
-      "label": "Show Badge"
-    },
-    {
-      "type": "range",
-      "id": "show_products",
-      "default": 4,
-      "label": "Show Products",
-      "max": 20,
-      "min": 4,
-      "step": 4
+      "type": "inline_richtext",
+      "id": "description",
+      "default": "Beschreibung",
+      "label": "Beschreibung"
     },
     {
       "type": "color",
@@ -127,6 +101,25 @@
       "default": "center"
     }
   ],
+  "blocks": [
+  {
+    "type": "collection_block",
+    "name": "Collection Block",
+    "settings": [
+      {
+        "type": "collection",
+        "label": "Collection",
+        "id": "collection"
+      },
+      {
+        "type": "image_picker",
+        "label": "Collection Image",
+        "id": "collection_image"
+      }
+      // Weitere Einstellungen für den Collection-Block können hier hinzugefügt werden
+    ]
+  }
+],
   "presets": [
     {
       "name": "Katalog Sammlung"
