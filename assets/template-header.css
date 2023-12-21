@@ -55,7 +55,7 @@
 }
 
 .header .header-icons {
-  gap: 5px;
+  gap: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -70,11 +70,46 @@
 }
 
 .header .header-icons i {
-  font-size: var(--h2-font-size);
+  font-size: 26px;
 }
 
 .header .header-icons .header-toggle {
   display: none;
+}
+
+.badge-count {
+  position: relative;
+}
+
+.badge-count::after {
+  position: absolute;
+  content: attr(data-bag);
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  background: coral;
+  border-radius: 50%;
+  color: white;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  background: coral;
+  border-radius: 50%;
+  color: white;
 }
 
 @media (max-width: 848px) {
