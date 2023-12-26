@@ -1,0 +1,124 @@
+{% comment %}
+  template-feature-showcase.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Feature Showcase"-Abschnitts.
+{% endcomment %}
+{{ 'template-feature-showcase.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .feauture-showcase-section{
+    background-color: {{ section.settings.background_color }} !important;
+  }
+{% endstyle %}
+
+<div class="feauture-showcase-section section-{{ section.id }}">
+    <div class="page-width">
+        <div class="title">
+            {% if section.settings.title != blank %}
+                {% assign titleAlign = section.settings.title_align %}
+                <h2 class="title{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+                    {{ section.settings.title }}
+                </h2>
+            {% endif %}
+        </div>
+
+        <div class="description">
+            {% if section.settings.description != blank %}
+                <h5 class="description{% if titleAlign %} text-{{ titleAlign }}{% endif %}">
+                    {{ section.settings.description }}
+                </h5>
+            {% endif %}
+        </div>
+
+        <div class="container">
+            <div class="showcase-content">
+                <div class="showcase-container">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'showcase_block' %}
+                            {% assign showcaseImage = block.settings.showcase_image %}
+                            {% assign showcaseTitle = block.settings.title %}
+                            {% assign showcaseDescription = block.settings.description %}
+                            <div class="showcase-image">
+                                {% if showcaseImage != blank %}
+                                    <img src="{{ showcaseImage | img_url: 'medium' }}" alt="{{ showcaseImage.title }} Image">
+                                {% else %}
+                                    {{ 'collection-6' | placeholder_svg_tag }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="showcase-texts">
+                    <ul class="showcase-list">    
+                        {% for block in section.blocks %}
+                            {% if block.type == 'showcase_block' %}
+                                <li arial-role="button">
+                                    <h3 class="showcase-title">{{ showcaseTitle }}</h3>
+                                    <h5 class="showcase-description">Shop {{ showcaseDescription }}</h5>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Feature Showcase Section",
+    "tag": "section",
+    "class": "section feauture-showcase-section",
+    "settings": [
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "default": "Hier kommt deine Überschrifft",
+            "label": "Überschrifft"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "description",
+            "default": "Hier kommt deine beschreibung",
+            "label": "Beschreibung"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "default": "#fff",
+            "label": "Hintergrund Farbe"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "showcase_block",
+            "name": "Showcase Block",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "label": "Showcase Image",
+                    "id": "showcase_image"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "title",
+                    "default": "hier komt deine Überschrifft",
+                    "label": "Überschrifft"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "description",
+                    "default": "Hier kommt deine beschreibung",
+                    "label": "Beschreibung"
+                }
+            ]
+        }
+    ],
+    "presets": [
+    {
+      "name": "Feauture Showcase Section"
+    }
+  ]
+  }
+{% endschema %}

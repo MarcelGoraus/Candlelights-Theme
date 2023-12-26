@@ -7,12 +7,12 @@
   justify-content: space-between;
   align-items: center;
   transition: 0.6s;
-  padding: 40px 100px;
+  padding: 40px 40px;
   z-index: 100000;
 }
 
 .header.sticky {
-  padding: 20px 100px;
+  padding: 20px 50px;
   background: #fff;
 }
 
@@ -36,6 +36,7 @@
   justify-content: center;
   align-items: center;
   width: 25%;
+  gap: 10px;
 }
 
 .header .header-links li {
@@ -45,7 +46,6 @@
 
 .header .header-links li a {
   position: relative;
-  margin: 0 15px;
   text-decoration: none;
   color: #000;
   letter-spacing: 2px;
@@ -61,12 +61,6 @@
   justify-content: center;
   align-items: center;
   width: 25%;
-}
-
-.header .header-icons .header-toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .header .header-icons i {
@@ -112,6 +106,12 @@
   color: white;
 }
 
+@media (min-width: 768px) and (max-width: 1440px) {
+  .header .header-links {
+    width: 25%;
+  }
+}
+
 @media (max-width: 848px) {
   .header {
     padding: 40px 10px;
@@ -122,6 +122,12 @@
   }
 
   .header .header-icons .header-toggle {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-icon-menu {
+    display: none;
   }
 }

@@ -22,14 +22,16 @@
   </div>
 
   <div class="header-icons">
-    {% if section.settings.searchform == true %}
-      <i class="bx bx-search"></i>
-    {% endif %}
-    <i class="bx bx-user"></i>
+    <div class="header-icon-menu">
+      {% if section.settings.searchform == true %}
+        <i class="bx bx-search"></i>
+      {% endif %}
+      <i class="bx bx-user"></i>
+    </div>
     <i class="bx bx-shopping-bag badge-count" data-bag="{{ cart.item_count }}">
-    </i>
-    <div class="header-toggle">
-      <i class="bx bx-menu"></i>
+      </i>
+      <div class="header-toggle">
+        <i class="bx bx-menu"></i>
     </div>
   </div>
 </div>
