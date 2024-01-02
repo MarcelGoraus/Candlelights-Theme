@@ -18,10 +18,19 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
 }
 
 .showcase-image {
   height: 500px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  width: 100%;
+}
+
+.showcase-image.active {
+  max-height: 500px;
 }
 
 .showcase-image svg,
@@ -30,33 +39,53 @@
   height: 100%;
 }
 
+.showcase-container {
+  position: relative;
+  width: 50%; /* Ändere dies entsprechend deiner Anforderungen */
+  margin: auto; /* Zentriere das Element horizontal */
+}
+
+.showcase-texts-container {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; /* Zentriere das Element horizontal */
+}
+
 .showcase-list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .showcase-list li {
   counter-increment: showcase-counter;
   margin-bottom: 10px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  position: relative;
+  list-style: none; /* Entferne die normale Nummerierung */
 }
 
-.showcase-list li::before {
-  content: counter(showcase-counter);
+.showcase-list li h3,
+.showcase-list li h5 {
+  margin-left: 45px; /* Ändere den Abstand nach Bedarf */
+}
+
+.showcase-list li:before {
+  content: "\2022"; /* Unicode-Zeichen für Disc */
+  font-size: 25px;
+  color: #fff; /* Ändere die Farbe der Disc nach Bedarf */
+  margin-right: 10px; /* Ändere den Abstand zwischen Disc und Zahl nach Bedarf */
+}
+
+.showcase-list li span {
   font-size: 25px;
   font-weight: 700;
-  background-color: #fff;
-  border-radius: 1000%;
-  padding: 10px;
-  height: 25px;
-  width: 25px;
-  text-align: center;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-right: 25px;
+}
+
+.showcase-list li.active span {
+  color: blue; /* Ändere die Farbe der Zahl im aktiven Zustand nach Bedarf */
 }

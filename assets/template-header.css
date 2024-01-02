@@ -1,73 +1,58 @@
-.header {
+header.navigation {
+  z-index: 999;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 40px 100px;
   transition: 0.6s;
-  padding: 40px 40px;
-  z-index: 100000;
+  align-items: center;
 }
 
-.header.sticky {
-  padding: 20px 50px;
+header.sticky {
   background: #fff;
+  padding: 30px 100px;
 }
 
-.header .header-logo {
-  position: relative;
-  font-weight: 700;
+header.sticky .brand {
+  color: black;
+}
+
+header .brand {
   color: #fff;
-  text-decoration: none;
-  font-size: var(--h1-font-size);
+  font-size: 30px;
+  font-weight: 700;
   text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 2px;
-  width: 50%;
-}
-
-.header .header-links {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  gap: 10px;
-}
-
-.header .header-links li {
-  position: relative;
-  list-style: none;
-}
-
-.header .header-links li a {
-  position: relative;
   text-decoration: none;
-  color: #000;
   letter-spacing: 2px;
-  font-weight: 500;
-  transition: 0.6s;
-  font-size: var(--small-font-size);
 }
 
-.header .header-icons {
-  gap: 10px;
+header ul.menu-links {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25%;
+  gap: 10px;
 }
 
-.header .header-icons i {
-  font-size: 26px;
+header ul.menu-links li a {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.header .header-icons .header-toggle {
+header .menu-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 25px;
+}
+
+header .menu-toggle {
+  cursor: pointer;
   display: none;
 }
 
@@ -106,28 +91,40 @@
   color: white;
 }
 
-@media (min-width: 768px) and (max-width: 1440px) {
-  .header .header-links {
-    width: 25%;
-  }
-}
-
-@media (max-width: 848px) {
-  .header {
+@media screen and (max-width: 1060px) {
+  header.navigation {
     padding: 40px 10px;
+    justify-content: space-evenly;
+    /* gap: 30px; */
   }
 
-  .header .header-links {
-    display: none;
+  header .menu-toggle {
+    display: block;
   }
 
-  .header .header-icons .header-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  header ul.menu-links {
+    z-index: 998;
+    position: fixed;
+    background: #fff;
+    flex-direction: column;
+    min-width: 400px;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    padding: 80px 50px;
+    transition: 0.6s;
+    transition-property: right;
   }
 
-  .header-icon-menu {
-    display: none;
+  header ul.menu-links.active {
+    right: 0;
+  }
+
+  header .menu-links .close-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 30px;
+    font-size: 25px;
   }
 }

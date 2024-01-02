@@ -4,48 +4,56 @@
   Dieses Template dient zur Darstellung eines "Navigation"-Abschnitts.
 {% endcomment %}
 {{ 'template-header.css' | asset_url | stylesheet_tag }}
-
-<div class="header">
-  <ul class="header-links">
-    {% for link in section.settings.menu.links %}
-      <li>
-        <a href="{{ link.url }}">
-          <span>{{ link.title }}</span>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-
-
-  <div class="header-logo">
-    <a href="">{{shop.name}}</a>
+      
+<a href="" class="brand">{{shop.name}}</a>
+<ul class="menu-links">
+  <div class="menu-toggle">
+    <i class='bx bx-x close-btn'></i>
   </div>
+  {% for link in section.settings.menu.links %}
+    <li>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
-  <div class="header-icons">
-    <div class="header-icon-menu">
-      {% if section.settings.searchform == true %}
-        <i class="bx bx-search"></i>
-      {% endif %}
-      <i class="bx bx-user"></i>
-    </div>
-    <i class="bx bx-shopping-bag badge-count" data-bag="{{ cart.item_count }}">
-      </i>
-      <div class="header-toggle">
-        <i class="bx bx-menu"></i>
-    </div>
+<div class="menu-icons">
+  <div class="menu-icon-menu">
+    {% if section.settings.searchform == true %}
+      <i class="bx bx-search"></i>
+    {% endif %}
+    <i class="bx bx-user"></i>
+  </div>
+  <i class="bx bx-shopping-bag badge-count" data-bag="{{ cart.item_count }}"></i>
+  <div class="menu-toggle">
+    <i class="bx bx-menu open-btn"></i>
   </div>
 </div>
 
-
 <script type="text/javascript">
   window.addEventListener("scroll", function() {
-    var header = document.querySelector(".header");
+    var header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0);
+  })
+
+  //Javascript for responsive navigation sidebar menu
+  var menu = document.querySelector("ul.menu-links");
+  var menuBtn = document.querySelector(".open-btn");
+  var closeBtn = document.querySelector(".close-btn");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.add("active");
+  })
+
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("active");
   })
 </script>
 {% schema %}
   {
     "name": "t:sections.header.name",
+    "tag":"header",
+    "class":"navigation",
     "settings": [
       {
         "type": "link_list",

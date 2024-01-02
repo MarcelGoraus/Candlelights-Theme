@@ -38,9 +38,9 @@
                             {% assign showcaseImage = block.settings.showcase_image %}
                             {% assign showcaseTitle = block.settings.title %}
                             {% assign showcaseDescription = block.settings.description %}
-                            <div class="showcase-image">
+                            <div class="showcase-image {% if forloop.first %}active{% else %}hidden{% endif %}">
                                 {% if showcaseImage != blank %}
-                                    <img src="{{ showcaseImage | img_url: 'medium' }}" alt="{{ showcaseImage.title }} Image">
+                                    <img src="{{ showcaseImage | img_url: 'medium' }}" alt="{{ showcaseImage.title }} Image" class="carousel-item">
                                 {% else %}
                                     {{ 'collection-6' | placeholder_svg_tag }}
                                 {% endif %}
@@ -48,13 +48,16 @@
                         {% endif %}
                     {% endfor %}
                 </div>
-                <div class="showcase-texts">
+                <div class="showcase-texts-container">
                     <ul class="showcase-list">    
                         {% for block in section.blocks %}
                             {% if block.type == 'showcase_block' %}
-                                <li arial-role="button">
-                                    <h3 class="showcase-title">{{ showcaseTitle }}</h3>
-                                    <h5 class="showcase-description">Shop {{ showcaseDescription }}</h5>
+                                <li arial-role="button" class="carousel-trigger {% if forloop.first %}active{% endif %}">
+                                    <span>{{ forloop.index | append: " " }}</span>
+                                    <div>
+                                        <h3 class="showcase-title">{{ showcaseTitle }}</h3>
+                                        <h5 class="showcase-description">{{ showcaseDescription }}</h5>
+                                    </div>
                                 </li>
                             {% endif %}
                         {% endfor %}
@@ -64,6 +67,50 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const showcaseTexts = document.querySelectorAll('.carousel-trigger');
+    const showcaseImages = document.querySelectorAll('.showcase-image');
+
+    let currentIndex = 0;
+
+    // Funktion zum Aktualisieren des Anzeigebildes und des aktiven Listenelements
+    function updateShowcase(index) {
+        showcaseImages.forEach(image => {
+            image.classList.add('hidden');
+            image.classList.remove('active');
+        });
+
+        showcaseTexts.forEach(t => t.classList.remove('active'));
+
+        showcaseImages[index].classList.remove('hidden');
+        showcaseImages[index].classList.add('active');
+        showcaseTexts[index].classList.add('active');
+    }
+
+    // Setze das erste Listenelement und Bild als aktiv
+    updateShowcase(currentIndex);
+
+    // Funktion für das Autoplay
+    function autoplay() {
+        currentIndex = (currentIndex + 1) % showcaseTexts.length;
+        updateShowcase(currentIndex);
+    }
+
+    // Starte das Autoplay mit einer festgelegten Zeitverzögerung (z.B. 3000 Millisekunden)
+    const autoplayInterval = setInterval(autoplay, 3000);
+
+    // Stoppe das Autoplay, wenn auf ein Listenelement geklickt wird
+    showcaseTexts.forEach((text, index) => {
+        text.addEventListener('click', function() {
+            clearInterval(autoplayInterval); // Stoppe das Autoplay
+            currentIndex = index; // Setze den Index auf das ausgewählte Listenelement
+            updateShowcase(currentIndex); // Aktualisiere das Anzeigebild und das aktive Listenelement
+        });
+    });
+});
+</script>
 
 {% schema %}
   {
