@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Candle Lights",
-    "theme_version": "1.0.2",
+    "theme_version": "1.0.3",
     "theme_author": "Marcel Goraus",
     "theme_documentation_url": "https://github.com/MarcelGoraus/Candlelights-Theme",
     "theme_support_url": "https://github.com/MarcelGoraus/Candlelights-Theme/issues"
@@ -36,6 +36,37 @@
         "min": 10,
         "max": 25,
         "step": 1
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Select cart type",
+        "options": [
+          {
+            "label": "Notification",
+            "value": "notification"
+          },
+          {
+            "label": "Drawer",
+            "value": "drawer"
+          },
+          {
+            "label": "Page",
+            "value": "page"
+          }
+        ],
+        "default": "page"
       }
     ]
   },
