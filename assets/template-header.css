@@ -58,6 +58,7 @@ header .menu-toggle {
 
 .badge-count {
   position: relative;
+  cursor: pointer;
 }
 
 .badge-count::after {

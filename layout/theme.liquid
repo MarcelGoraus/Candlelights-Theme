@@ -69,6 +69,17 @@
 
     {% sections 'footer-group' %}
 
+    {% if settings.cart_type == 'drawer' %}
+      {%  section 'cart-drawer' %}
+    {% endif  %}
+    <script>
+      window.routes = {
+        cart_type: "{{ settings.cart_type }}",
+        cart_url: "{{ routes.cart_url }}",
+        currency: "{{ shop.money_with_currency_format }}"
+      }    
+    </script>
+
     {{ 'application.js' | asset_url | script_tag }}
   </body>
 </html>

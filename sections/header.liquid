@@ -22,10 +22,15 @@
           <i class="bx bx-search"></i>
         {% endif %}
 
+        <a href="{{ routes.account_login_url}}">
         <i class="bx bx-user"></i>
-        <i class="bx bx-shopping-bag">
-          <span>{{ cart.item_count }}</span>
-        </i>
+        </a>
+        
+        <a href="{% if settings.cart_type == "drawer" %}#{% else %}{{ routes.cart_url }}{% endif %}">
+          <i class="bx bx-shopping-bag">
+              <span>{{ cart.item_count }}</span>
+          </i>
+        </a>
         <div class="navigation-toggle">
           <i class="bx bx-menu"></i>
         </div>

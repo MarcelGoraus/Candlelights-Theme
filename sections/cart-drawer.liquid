@@ -1,0 +1,31 @@
+{% comment %}
+  cart-drawer.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Cart Drawers"-Abschnitts.
+{% endcomment %}
+
+{{ 'template-cart-drawer.css' | asset_url | stylesheet_tag }}
+{{ 'cart.js' | asset_url | script_tag }}
+
+<div class="cartDrawer">
+    <div class="cartDrawerHeader">
+        <h5>Produkte</h5>
+        <i class='bx bx-x close-drawer'></i>
+    </div>
+    <hr>
+
+    <div class="cartDrawerBody">
+        HIER KOMMEN DIE Produkte mit BILD QUANTITY PREIS
+    </div>
+
+    <div class="cartDrawerFooter">
+    
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name":"Cart Drawer",
+        "settings":[]
+    }
+{% endschema %}

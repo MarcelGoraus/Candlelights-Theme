@@ -22,9 +22,13 @@
     {% if section.settings.searchform == true %}
       <i class="bx bx-search"></i>
     {% endif %}
-    <i class="bx bx-user"></i>
+    <a href="{{ routes.account_login_url}}">
+      <i class="bx bx-user"></i>
+    </a>
   </div>
-  <i class="bx bx-shopping-bag badge-count" data-bag="{{ cart.item_count }}"></i>
+  <a href="{% if settings.cart_type == "drawer" %}#{% else %}{{ routes.cart_url }}{% endif %}">
+    <i class="bx bx-shopping-bag badge-count" data-bag="{{ cart.item_count }}"></i>
+  </a>
   <div class="menu-toggle">
     <i class="bx bx-menu open-btn"></i>
   </div>
