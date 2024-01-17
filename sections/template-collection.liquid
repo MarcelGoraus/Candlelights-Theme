@@ -1,0 +1,92 @@
+{% comment %}
+  template-collection.liquid
+  ---------------------------
+  Dieses Template dient zur Darstellung eines "Feature Showcase"-Abschnitts.
+{% endcomment %}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .collection-section{
+    background-color: {{ section.settings.background_color }} !important;
+    height: 100vh;
+  }
+{% endstyle %}
+
+<div class="collectionn-section section-{{ section.id }}">
+    <div class="page-width">
+        <div class="collection-container">
+            <div class="collection-header">
+                <h1 class="collection-title">
+                    {{ collection.title }}
+                </h1>
+                <div class="collection-content">
+                    <span class="collection-count">
+                        {{ collection.all_products_count }} Produkte
+                    </span>
+                    <select name="collection_filter" id="collection_filter">
+                        {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+
+                        {% for option in collection.sort_options %}
+                            <option 
+                                value="{{ option.value }}"
+                                {% if option.value == sort_by %}
+                                    selected="selected"
+                                {% endif %}
+                            >
+                                {{ option.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Shopify.queryParams = {}
+
+    if(location.search.length) {
+        var params = location.search.substr(1).split('&');
+
+        for (var i = 0; i < params.length; i++) {
+            var keyValue = params[i].split('=');
+
+            if (keyValue.length) {
+                Shopify.queryParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+            }
+        }
+    }
+
+    // Update sort_by query parameter on select change
+    document.querySelector('#collection_filter').addEventListener('change', function(e) {
+        var value = e.target.value;
+
+        Shopify.queryParams.sort_by = value;
+        location.search = new URLSearchParams(Shopify.queryParams).toString();
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Collection Section",
+    "tag": "section",
+    "class": "section collection-section",
+    "settings": [
+        {
+            "type": "inline_richtext",
+            "id": "title",
+            "default": "Hier kommt deine Überschrifft",
+            "label": "Überschrifft"
+        }
+    ],
+    "disabled_on": {
+        "groups": ["header", "footer"]
+    },
+    "presets": [
+    {
+      "name": "Collection Section"
+    }
+  ]
+  }
+{% endschema %}
